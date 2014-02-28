@@ -1,0 +1,112 @@
+/* Style.less | Michael T. Schmidt | MIT License | 2014 /*
+
+/* LESS variables */
+@images: "./img";
+
+@background-color: #434242;
+@background-dark: darken(@background-color, 10%);
+@background-light: lighten(@background-color, 10%);
+
+@text-color: #FFFFFF;
+
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Domine:700,400);
+
+/* Body */
+
+body {
+  color: @text-color;
+  background: none repeat scroll 0 0 @background-light;
+}
+
+
+/* Title */
+@title-background: #000000;
+@title-opacity: 0.6;
+@jumbotron-color: #22A39F;
+
+.jumbotron {
+  height: 1000px;
+  minwidth: 100%;
+  background-position: center top;
+  background-color: @jumbotron-color;
+  color: #FFFFFF;
+
+  .header-title {
+    background: none repeat scroll 0 0 @title-background;
+    opacity: @title-opacity;
+
+    -webkit-border-radius: 8px; /*here you can control the intensity of the rounded corners*/
+    -moz-border-radius: 8px; /*if you change the webkit-border-radius property, don't forget to change the value in here too...*/
+    border-radius: 8px; /*...and in here*/
+    font-family: 'Domine', sans-serif; font-weight: 700;
+    z-index: 1001;
+    position: absolute;
+    right: 5%;
+  }
+}
+
+.navbar {
+  position: fixed;
+  float: left;
+  z-index: 9999;
+  background: none repeat scroll 0 0 #222222;
+  border: 0 none;
+  width: auto;
+  left: 2%;
+
+  .fixed {
+    position: fixed;
+    top: 60px;
+  }
+
+  > .container-fluid {
+    padding: 0;
+  }
+
+  .navbar-collapse {
+    max-height: none;
+    padding: 0;
+  }
+  
+  .navbar-nav {
+    float: none;
+  }
+
+  .nav > li {
+    display: block;
+    float: none;
+    height: 80px;
+
+    a {
+      color: #FFFFFF;
+      display: block;
+      font-weight: 600;
+      height: 80px;
+      padding-top: 30px;
+      text-align: center;
+
+      :hover, :focus {
+        color: #999999;
+      }
+    }
+    
+    > .active {
+      a {
+        background: none repeat scroll 0 0 #22A39F;
+        color: #FFFFFF;
+        :hover, :focus {
+          background: none repeat scroll 0 0 #22A39F;
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+}
+
+.container {
+    max-width: 1280px;
+    padding: 40px 50px;
+}
+
+
