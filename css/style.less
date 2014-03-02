@@ -1,11 +1,16 @@
 /* Style.less | Michael T. Schmidt | MIT License | 2014 /*
 
-/* LESS variables */
+/* Variables */
 @images: "./img";
 
-@background-color: #434242;
+//@background-color: #434242;
+@background-color: #3A4B73;
 @background-dark: darken(@background-color, 10%);
-@background-light: lighten(@background-color, 10%);
+//@background-light: lighten(@background-color, 10%);
+@background-light: #FFFFFF;
+
+@background-light-text: #000000;
+@background-dark-text: #FFFFFF;
 
 @text-color: #FFFFFF;
 
@@ -16,21 +21,35 @@
 
 body {
   color: @text-color;
-  background: none repeat scroll 0 0 @background-light;
+  //background: none repeat scroll 0 0 @background-light;
 }
 
 
 /* Title */
 @title-background: #000000;
 @title-opacity: 0.6;
+@title-text: #FFFFFF;
 @jumbotron-color: #22A39F;
+@jumbotron-overlay-color: lighten(@background-color, 20%);
+@jumbotron-overlay-opaci: 0.3;
 
 .jumbotron {
   height: 1000px;
   minwidth: 100%;
-  background-position: center top;
-  background-color: @jumbotron-color;
+  background: none no-repeat fixed right center / cover rgba(0, 0, 0, 0);
+  //background-color: @jumbotron-color;
   color: #FFFFFF;
+
+  .overlay {
+    background-color: @jumbotron-overlay-color;
+    bottom: 0;
+    left: 0;
+    opacity: @jumbotron-overlay-opaci;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+  }
 
   .header-title {
     background: none repeat scroll 0 0 @title-background;
@@ -39,26 +58,44 @@ body {
     -webkit-border-radius: 8px; /*here you can control the intensity of the rounded corners*/
     -moz-border-radius: 8px; /*if you change the webkit-border-radius property, don't forget to change the value in here too...*/
     border-radius: 8px; /*...and in here*/
-    font-family: 'Domine', sans-serif; font-weight: 700;
+    font-family: 'Domine', sans-serif;
+    font-weight: 700;
     z-index: 1001;
     position: absolute;
     right: 5%;
+    color: @title-text;
+    padding: 10px 10px 10px 10px;
+  }
+
+  .scroll-down {
+    background-color: #222222;
+    bottom: 0;
+    display: block;
+    height: 80px;
+    position: absolute;
+    left: 2%;
+    text-align: center;
+    width: @navbar-width;
+    z-index: 5;
   }
 }
 
+/* Navbar */
+@navbar-width: 137px;
+
 .navbar {
-  position: fixed;
+  position: absolute;
   float: left;
   z-index: 9999;
   background: none repeat scroll 0 0 #222222;
   border: 0 none;
-  width: auto;
+  width: @navbar-width;
   left: 2%;
+  top: 100%;
 
-  .fixed {
-    position: fixed;
-    top: 60px;
-  }
+  -webkit-border-radius: 0; /*here you can control the intensity of the rounded corners*/
+  -moz-border-radius: 0; /*if you change the webkit-border-radius property, don't forget to change the value in here too...*/
+  border-radius: 0; /*...and in here*/
 
   > .container-fluid {
     padding: 0;
@@ -104,9 +141,71 @@ body {
   }
 }
 
+.fixed .navbar {
+  position: fixed;
+  top: 0;
+}
+
 .container {
     max-width: 1280px;
     padding: 40px 50px;
 }
 
 
+.info{
+  h1 {
+    text-align: center;
+  }
+
+  > .bg-light {
+    background: none repeat scroll 0 0 @background-light;
+    color: @background-light-text;
+
+    hr {
+      border-color: @background-dark;
+      margin: 40px 0;
+      opacity: 0.2;
+    }
+  }
+
+  > .bg-dark {
+    background: none repeat scroll 0 0 @background-dark;
+    color: @background-dark-text;
+
+    hr {
+      border-color: @background-light;
+      margin: 40px 0;
+      opacity: 0.2;
+    }
+  }
+}
+
+ul.no-bullets {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.smed-icon {
+  background-color:#222;
+  background-repeat:no-repeat;
+  background-position:center center;
+  height: 2em;
+  width: 2em;
+  -webkit-transition: background-color 0.4s ease;
+  -moz-transition: background-color 0.4s ease;
+  -ms-transition: background-color 0.4s ease;
+  -o-transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease;
+}
+
+.smed-twitter {
+  background-image:url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iLTAuNyAtMC40IDE4NCAyNDUiID48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTgyLjcsMjEzLjVjMCw4LjQtMywxNS42LTksMjEuNWMtNiw2LTEzLjIsOS0yMS42LDlIOTEuNWMtMjUuMiwwLTQ2LjgtOC45LTY0LjctMjYuOEM4LjksMTk5LjQsMCwxNzcuOSwwLDE1Mi44VjMwLjVjMC04LjYsMy0xNS45LDguOS0yMS43QzE0LjksMi45LDIyLjIsMCwzMC44LDBjOC4zLDAsMTUuNSwzLDIxLjUsOWM2LDYsOSwxMy4xLDksMjEuNXY0NC4zaDg2LjJjNy44LDAsMTQuNSwyLjgsMjAuMSw4LjNjNS42LDUuNSw4LjQsMTIuMiw4LjQsMjBjMCw3LjgtMi44LDE0LjQtOC40LDIwYy01LjYsNS41LTEyLjMsOC4zLTIwLDguM0g2MS4ydjIxLjRjMCw4LjQsMi45LDE1LjUsOC44LDIxLjRjNS45LDUuOSwxMyw4LjgsMjEuNSw4LjhIMTUyYzguNCwwLDE1LjYsMywyMS42LDlDMTc5LjcsMTk4LDE4Mi43LDIwNS4xLDE4Mi43LDIxMy41eiIvPjwvc3ZnPg==);
+  background-size:40%;
+  :hover{
+    background-color:#44C8F5;
+  }
+}
+
+  

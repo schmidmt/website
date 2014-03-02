@@ -21,20 +21,31 @@
     <![endif]-->
   </head>
   <body role="document" _texified="true" data-spy="scroll" data-target=".navbar">
-    
-    <nav class="navbar navbar-default">
+
+    <div class="jumbotron" style="background: url('img/book_pencil.png') no-repeat fixed;">
+      <div class="overlay"></div>
+      <div class="header-title">
+        <h1>Michael T. Schmidt</h1>
+        <p class="lead">A Bit About Me</p>
+      </div>
+      <a class="scroll-down" href="#about">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+    </div> <!-- jumbotron -->
+
+    <nav class="navbar navbar-default" id="navbar">
       <div class="container-fluid">
         <div class="navbar-header">
           <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
           </button>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="#about">About Me</a></li>
+            <li class="active"><a href="#about">About Me</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#resume">Resume</a></li>
             <li><a href="#publications">Publications</a></li>
@@ -44,99 +55,124 @@
       </div> <!-- container-fluid -->
     </nav>
 
-    <div class="jumbotron" style="background: url('img/book_pencil.png') no-repeat;">
-      <div class="row">
-        <div class="col-md-5 header-title">
-          <h1>Michael T. Schmidt</h1>
-          <p class="lead">A Bit About Me</p>
-        </div>
-      </div>
-    </div> <!-- jumbotron -->
+    <div class="info">
 
-    <div id="about" class="container">
-      <h1>About Me</h1>
-      <div class="row">
-        <div class="col-md-3" style="margin-right: auto; margin-left: auto;">
-        Some stuff
-        </div>
-      </div>
-    </div>
+      <div id="about" class="bg-light">
+        <div class="container">
+          <h1>About Me</h1>
+          <hr>
+          <div class="row">
+            <div class="col-md-4">
+              <p>
+                I am an experienced mathematician, physicist, programmer, systems administrator, and teacher.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <div>
+                <img src=""></img>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h3>Contact</h3>
+                <ul class="no-bullets">
+                  <li><span class="glyphicon glyphicon-envelope"> <a href="mailto:schmidmt@gmail.com">schmidmt@gmail.com</a></span></li>
+                  <li><div class="smed-icon smed-twitter"></div><a href="#">@schmidmt</a></li>
+                </ul>
+            </div>
+          </div>
+        </div> <!-- Container -->
+      </div> <!-- about -->
 
-    <div id="projects" class="container">
-      <h1>Projects</h1>
-      <div class="row">
-        <div class="col-md-3">
-          <div class="well">
-            <a href="#" >
-              <h3>Physicae Mathematica</h3>
-              <img class="img-thumbnail" src="img/physicae_cover.png" alt="Physicae Mathematicae" width="100%"/>
-            </a>
+      <div id="projects" class="bg-dark">
+        <div class="container">
+          <h1>Projects</h1>
+          <hr>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="well">
+                <a href="#" >
+                  <h3>Physicae Mathematica</h3>
+                  <img class="img-thumbnail" src="img/physicae_cover.png" alt="Physicae Mathematicae" width="100%"/>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="well">
+                <h3>HPC-Tutorials</h3>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="well">
+                <h3>Small School Epidemiology</h3>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="well">
+                <h3>GitHub</h3>
+                <iframe src="http://githubbadge.appspot.com/schmidmt?s=1" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-3">
-          <div class="well">
-            <h3>HPC-Tutorials</h3>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="well">
-            <h3>Small School Epidemiology</h3>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="well">
-            <h3>GitHub</h3>
-            <iframe src="http://githubbadge.appspot.com/schmidmt?s=1" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div id="resume" style="background-color: #E7E0D6; background-size: 100%;">
-      <div class="container">
-        <h1>Resume</h1>
-          <div class="well">
+        </div> <!-- Container -->
+      </div> <!-- Projects -->
+      
+      <div id="resume" class="bg-light">
+        <div class="container">
+          <h1>Resume</h1>
+          <hr>
             <h3>Education</h3>
+            <h3>Experience</h3>
+            <h3>Skills</h3>
+          </div> <!-- Container -->
+      </div> <!-- Resume -->
+      
+      <div id="publications" class="bg-dark">
+        <div class="container">
+          <h1>Papers</h1>
+          <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <h3>A Tale of Two Arc Lengths</h3>
+              <a href="http://arxiv.org/abs/1205.0065">arXiv</a>
+            </div>
           </div>
-          <h3>Experience</h3>
-          <h3>Skills</h3>
+        </div> <!-- Conainer -->
+      </div> <!-- Publications -->
 
-      </div>
-    </div>
-    
-    <div id="publications">
-      <div class="container">
-        <h1>Papers</h1>
-        <div class="row">
-          <div class="col-md-12">
-            <h3>A Tale of Two Arc Lengths</h3>
-            <a href="http://arxiv.org/abs/1205.0065">arXiv</a>
+      <div id="contrib" class="bg-light">
+        <div class="container">
+          <h1>Contributions</h1>
+          <hr>
+          <div class="row">
+            <div class="col-md-3">
+              <h3>Physics Mill</h3>
+            </div>
+            <div class="col-md-3">
+              <h3>MontessoriMuddle</h3>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </div> <!-- Container -->
+      </div> <!-- Contrib -->
 
-    <div id="contrib" style="background-color: #E7E0D6; background-size: 100%;">
-      <div class="container">
-        <h1>Contributions</h1>
-        <div class="row">
-          <div class="col-md-3">
-            <h3>Physics Mill</h3>
-          </div>
-          <div class="col-md-3">
-            <h3>MontessoriMuddle</h3>
-          </div>
-        </div>
-      </div>
-    </div>
+    </div> <!-- Info -->
 
+    <!-- Less Client-Side -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.6.3/less.min.js"></script> -->
+    <script src="js/less.min.js"></script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/psschmidt.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.6.3/less.min.js"></script>
+
+
+    <!-- Local Script -->
+    <script src="js/script.js"></script>
+    
+
+    <!-- Google Analytics -->
     <!--
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
