@@ -15,13 +15,15 @@
 @text-color: #FFFFFF;
 
 /* Fonts */
-@import url(http://fonts.googleapis.com/css?family=Domine:700,400);
+//@import url(http://fonts.googleapis.com/css?family=Domine:700,400);
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic|Domine:400,700);
 
 /* Body */
 
 body {
   color: @text-color;
   //background: none repeat scroll 0 0 @background-light;
+  font-family: 'Libre Baskerville', serif;
 }
 
 
@@ -55,6 +57,7 @@ body {
     background: none repeat scroll 0 0 @title-background;
     opacity: @title-opacity;
 
+
     -webkit-border-radius: 8px; /*here you can control the intensity of the rounded corners*/
     -moz-border-radius: 8px; /*if you change the webkit-border-radius property, don't forget to change the value in here too...*/
     border-radius: 8px; /*...and in here*/
@@ -65,6 +68,7 @@ body {
     right: 5%;
     color: @title-text;
     padding: 10px 10px 10px 10px;
+
   }
 
   .scroll-down {
@@ -73,15 +77,16 @@ body {
     display: block;
     height: 80px;
     position: absolute;
-    left: 2%;
+    left: 0%;
     text-align: center;
-    width: @navbar-width;
+    height: @navbar-height;
+    width: 100%;
     z-index: 5;
   }
 }
 
 /* Navbar */
-@navbar-width: 137px;
+@navbar-height: 20px;
 
 .navbar {
   position: absolute;
@@ -89,39 +94,51 @@ body {
   z-index: 9999;
   background: none repeat scroll 0 0 #222222;
   border: 0 none;
-  width: @navbar-width;
-  left: 2%;
+  width: 100%;
+  //height: @navbar-height;
+  left: 0%;
   top: 100%;
+
+  .navbar-header {
+    font-family: 'Domine', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    padding: 10px 10px 10px 10px;
+    //border-bottom: 1px solid #FFFFFF;
+  }
 
   -webkit-border-radius: 0; /*here you can control the intensity of the rounded corners*/
   -moz-border-radius: 0; /*if you change the webkit-border-radius property, don't forget to change the value in here too...*/
   border-radius: 0; /*...and in here*/
 
   > .container-fluid {
-    padding: 0;
+    //padding: 0;
   }
 
   .navbar-collapse {
+    /*
     max-height: none;
     padding: 0;
+    */
   }
   
   .navbar-nav {
-    float: none;
+    //float: none;
   }
 
   .nav > li {
-    display: block;
+    /*
     float: none;
-    height: 80px;
-
+    */
+    //height: 80px;
+    
     a {
+
       color: #FFFFFF;
-      display: block;
+      /*
+      display: inline;
       font-weight: 600;
-      height: 80px;
-      padding-top: 30px;
-      text-align: center;
+      */
 
       :hover, :focus {
         color: #999999;
@@ -157,6 +174,26 @@ body {
     text-align: center;
   }
 
+  p.lead {
+    
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.0em;
+    padding-bottom: 1em;
+  }
+
+  h3 {
+    font-size: 1.75em;
+    text-align: center;
+    +p.lead {
+      font-size: 0.90em;
+      margin: 0 0 10px;
+      text-align: center;
+    }
+  }
+
   > .bg-light {
     background: none repeat scroll 0 0 @background-light;
     color: @background-light-text;
@@ -188,9 +225,9 @@ ul.no-bullets {
 
 
 .smed-icon {
-  background-color:#222;
-  background-repeat:no-repeat;
-  background-position:center center;
+  //background-color:#222;
+  //background-repeat:no-repeat;
+  //background-position:center center;
   height: 2em;
   width: 2em;
   -webkit-transition: background-color 0.4s ease;
@@ -198,6 +235,8 @@ ul.no-bullets {
   -ms-transition: background-color 0.4s ease;
   -o-transition: background-color 0.4s ease;
   transition: background-color 0.4s ease;
+
+  padding: 0 2px 2px 2px; 
 }
 
 .smed-twitter {
@@ -208,4 +247,25 @@ ul.no-bullets {
   }
 }
 
-  
+
+/* Create a Psuedo Element for offsetting tags to account for header */
+a.anchor{
+  display: block;
+  position: relative;
+  top: 0;
+  visibility: hidden;
+}
+/*
+.info div[id]:before {
+    content:"";
+    display:block;
+    height:100px;
+    margin:-30px 0 0;
+}
+*/
+
+@media (max-width: 767px) {
+  .nophone {
+    display: none;
+  }
+}

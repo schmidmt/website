@@ -3,6 +3,7 @@ var stickyNavDisp;
 $(document).ready(function() {
     applyHeader();
     applyNavigation();
+    applyNavHeightFix();
     applyResize();
     decodeEmail();
 
@@ -64,11 +65,11 @@ function applyScrollSpy() {
 }
 
 function applyStickyNav() {
-    stickyNavDisp = $('.scroll-down').offset().top + $('.scroll-down').outerHeight();
+    //stickyNavDisp = $('.scroll-down').offset().top + $('.scroll-down').outerHeight();
 
-    //stickyNavDisp = $(window).height() - 40
+    stickyNavDisp = $(window).height()
 
-    console.log('Applying StickyNav. offset = ' + stickyNavDisp )
+    //console.log('Applying StickyNav. offset = ' + stickyNavDisp )
 
     $(window).on('scroll', function() {
         stickyNav();
@@ -78,31 +79,38 @@ function applyStickyNav() {
 
 function stickyNav() {
     if ($(window).scrollTop() > stickyNavDisp) {
-        console.log("Adding Fixed to nav")
+        //console.log("Adding Fixed to nav")
         $('body').addClass('fixed');
     } else {
-        console.log("Removing Fixed to nav")
+        //console.log("Removing Fixed to nav")
         $('body').removeClass('fixed');
     }
 }
 
+function applyNavHeightFix() {
+    $('a.anchor').css({
+      top: -($('#navbar').outerHeight() - 20)
+    });
+}
+
 function applyResize() {
     $(window).on('resize', function() {
-        console.log('Applying StickyNav. offset = ' + $('.scroll-down').offset().top + $('.scroll-down').outerHeight() )
+        //console.log('Applying StickyNav. offset = ' + $('.scroll-down').offset().top + $('.scroll-down').outerHeight() )
         stickyNavDisp = $('.scroll-down').offset().top + $('.scroll-down').outerHeight();
         /*$('.jumbotron').css({
             height: ($(window).height()) + 'px'
         });*/
         applyHeader();
+        applyNavHeightFix();
     });
 }
 
 function decodeEmail() {
     $('a[href*=mailto]').on('click', function(e) {
         var lstrEmail = $(this).attr('href').replace('mailto:', '');
-        console.log('found email: ' + lstrEmail)
+        //console.log('found email: ' + lstrEmail)
         lstrEmail = rot13(lstrEmail)
-        console.log('replacing with: ' + lstrEmail)
+        //console.log('replacing with: ' + lstrEmail)
         $(this).attr('href', 'mailto:' + lstrEmail);
     });
 }
