@@ -1,7 +1,7 @@
 /* Style.less | Michael T. Schmidt | MIT License | 2014 /*
 
 /* Variables */
-@images: "./img";
+@images: "../img";
 
 //@background-color: #434242;
 @background-color: #3A4B73;
@@ -15,7 +15,6 @@
 @text-color: #FFFFFF;
 
 /* Fonts */
-//@import url(http://fonts.googleapis.com/css?family=Domine:700,400);
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic|Domine:400,700);
 
 /* Body */
@@ -56,7 +55,6 @@ body {
   .header-title {
     background: none repeat scroll 0 0 @title-background;
     opacity: @title-opacity;
-
 
     -webkit-border-radius: 8px; /*here you can control the intensity of the rounded corners*/
     -moz-border-radius: 8px; /*if you change the webkit-border-radius property, don't forget to change the value in here too...*/
@@ -104,41 +102,17 @@ body {
     font-weight: 700;
     font-size: 1.5em;
     padding: 10px 10px 10px 10px;
-    //border-bottom: 1px solid #FFFFFF;
   }
 
   -webkit-border-radius: 0; /*here you can control the intensity of the rounded corners*/
   -moz-border-radius: 0; /*if you change the webkit-border-radius property, don't forget to change the value in here too...*/
   border-radius: 0; /*...and in here*/
 
-  > .container-fluid {
-    //padding: 0;
-  }
-
-  .navbar-collapse {
-    /*
-    max-height: none;
-    padding: 0;
-    */
-  }
-  
-  .navbar-nav {
-    //float: none;
-  }
-
   .nav > li {
-    /*
-    float: none;
-    */
-    //height: 80px;
     
     a {
 
       color: #FFFFFF;
-      /*
-      display: inline;
-      font-weight: 600;
-      */
 
       :hover, :focus {
         color: #999999;
@@ -194,7 +168,19 @@ body {
     }
   }
 
-  > .bg-light {
+  > .infocell:nth-child(even) {
+    background: none repeat scroll 0 0 @background-dark;
+    color: @background-dark-text;
+
+    hr {
+      border-color: @background-light;
+      margin: 40px 0;
+      opacity: 0.2;
+    }
+
+  }
+
+  > .infocell:nth-child(odd) {
     background: none repeat scroll 0 0 @background-light;
     color: @background-light-text;
 
@@ -205,16 +191,29 @@ body {
     }
   }
 
-  > .bg-dark {
-    background: none repeat scroll 0 0 @background-dark;
-    color: @background-dark-text;
+  > .infocell:last-of-type {
+    background: none repeat scroll 0 0 #000000;
+    color: #FFFFFF;
 
     hr {
-      border-color: @background-light;
+      border-color: #FFFFFF;
       margin: 40px 0;
       opacity: 0.2;
     }
   }
+
+  .skills {
+    ul {
+        list-style-type: none;
+        padding: 3px;
+        margin: 20px 0;
+
+        li {
+          //text-align: center;
+        }
+    }
+  }
+
 }
 
 ul.no-bullets {
@@ -223,28 +222,70 @@ ul.no-bullets {
   margin: 0;
 }
 
+.skilllist > li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 3px;
+  margin: 20px 0;
 
-.smed-icon {
+}
+
+.arc path {
+  stroke: #fff;
+}
+
+.icon {
   //background-color:#222;
   //background-repeat:no-repeat;
-  //background-position:center center;
-  height: 2em;
-  width: 2em;
+  height: 35px;
+  width: 35px;
+  
   -webkit-transition: background-color 0.4s ease;
   -moz-transition: background-color 0.4s ease;
   -ms-transition: background-color 0.4s ease;
   -o-transition: background-color 0.4s ease;
   transition: background-color 0.4s ease;
 
-  padding: 0 2px 2px 2px; 
+  margin: 2px 2px 2px 2px; 
+  padding: 0;
+
+  background: url("@{images}/icons/iconset.png") no-repeat scroll 0px 0px;
 }
 
-.smed-twitter {
-  background-image:url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iLTAuNyAtMC40IDE4NCAyNDUiID48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTgyLjcsMjEzLjVjMCw4LjQtMywxNS42LTksMjEuNWMtNiw2LTEzLjIsOS0yMS42LDlIOTEuNWMtMjUuMiwwLTQ2LjgtOC45LTY0LjctMjYuOEM4LjksMTk5LjQsMCwxNzcuOSwwLDE1Mi44VjMwLjVjMC04LjYsMy0xNS45LDguOS0yMS43QzE0LjksMi45LDIyLjIsMCwzMC44LDBjOC4zLDAsMTUuNSwzLDIxLjUsOWM2LDYsOSwxMy4xLDksMjEuNXY0NC4zaDg2LjJjNy44LDAsMTQuNSwyLjgsMjAuMSw4LjNjNS42LDUuNSw4LjQsMTIuMiw4LjQsMjBjMCw3LjgtMi44LDE0LjQtOC40LDIwYy01LjYsNS41LTEyLjMsOC4zLTIwLDguM0g2MS4ydjIxLjRjMCw4LjQsMi45LDE1LjUsOC44LDIxLjRjNS45LDUuOSwxMyw4LjgsMjEuNSw4LjhIMTUyYzguNCwwLDE1LjYsMywyMS42LDlDMTc5LjcsMTk4LDE4Mi43LDIwNS4xLDE4Mi43LDIxMy41eiIvPjwvc3ZnPg==);
-  background-size:40%;
-  :hover{
-    background-color:#44C8F5;
+.icon-github {
+  background-position: 0px 0px;
+}
+
+.icon-email {
+  background-position: 0px -35px;
+}
+
+.icon-linkedin {
+  background-position: 0px -175px;
+}
+
+.icon-facebook {
+  background-position: 0px -140px;
+}
+
+.icon-googleplus {
+  background-position: 0px -105px;
+}
+
+.wrap {
+  margin: 0 auto;
+  padding: 2%;
+  width: 90%;
+  float: none;
+  div {
+    display: inline-block;
   }
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -264,8 +305,59 @@ a.anchor{
 }
 */
 
-@media (max-width: 767px) {
-  .nophone {
+@media (max-width: 767px) { 
+	.jumbotron .container {
+    top: 20%;
+    padding-top: 0px;
+  }
+	.jumbotron .scroll-down {
+    width: 100%;
+    right: 0px;
+  }
+	
+	.navbar {
+    left: 0px;
+    width: 100%;
+  }
+	.navbar .nav > li {
+    height: 60px;
+  }
+	.navbar .nav > li a {
+    height: 60px;
+    text-align: center;
+    padding-top: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+	
+	.fixed .navbar {
+    top: 0px;
+  }
+	
+	.container {
+    padding: 60px 20px;
+    min-width: 280px;
+  }
+	.nophone {
     display: none;
   }
+}    
+
+@media only screen and (orientation: portrait) and (max-width: 767px)  {
+    .jumbotron {
+      -webkit-background-size: auto 150%;
+      background-attachment: scroll;
+    }
 }
+
+@media only screen and (orientation: landscape) and (max-width: 767px)  {
+
+    .jumbotron {
+      -webkit-background-size: 150% auto;
+      background-attachment: scroll;
+    }
+	
+	.jumbotron .lead { display: none; }
+}
+
+

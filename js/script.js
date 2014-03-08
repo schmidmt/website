@@ -6,32 +6,9 @@ $(document).ready(function() {
     applyNavHeightFix();
     applyResize();
     decodeEmail();
-
-    /*
-  scrollFade($(document.getElementById('title'))
-    , 0.5  // Friction (0 ~ 1): lower = none
-    , 0    // Fade duration (0 ~ 1): lower = longer
-  );
-  */
+    applySkills();
 })
 
-var $window = $(window);
-
-function scrollFade($element, friction, offset) {
-    friction = (friction === undefined) ? 0.5 : friction;
-    offset = (offset === undefined) ? 0 : offset;
-
-    $window.scroll(function() {
-        var scrollTop = $window.scrollTop(),
-            parentHeight = $element.parent().outerHeight() * 0.5,
-            yOffset = ($element.outerHeight() * -0.5) + scrollTop * friction;
-
-        $element.css({
-            transform: 'translate(0px,' + (120 + yOffset) + 'px)',
-            opacity: 1 - (scrollTop / Math.max(1, (parentHeight - (parentHeight * offset))))
-        });
-    });
-}
 
 function applyHeader() {
     $('.jumbotron').css({
@@ -41,7 +18,6 @@ function applyHeader() {
 
 function applyNavigation() {
     applyClickEvent();
-    //applyNavigationFixPhone();
     applyScrollSpy();
     applyStickyNav();
 }
@@ -123,4 +99,19 @@ function rot13(str) {
             var character = String.fromCharCode(ch);
             return (m == m.toUpperCase()) ? character : character.toLowerCase();
         });
+}
+
+function applySkills() {
+  /*
+  var symbol = "glyphicon glyphicon-cog";
+  //$('.ability-value').
+  //
+  console.log("hit applySkills");
+  console.log("ability-value elements:")
+  var abilityValues = document.getElementsByClassName("ability-value")
+  console.log("Found " + abilityValues.length + " objects")
+  for ( i = 0 ; i < abilityValues.length ; i++) {
+    console.log(i + " " + abilityValues[i].parentNode.firstChild.innerHTML + " -> Classes: " + abilityValues[i].classList);
+  }
+  */
 }
