@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The webpage of Michael T. Schmidt.">
     <title>Michael T. Schmidt</title>
 
     <!-- Bootstrap -->
@@ -20,9 +22,10 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+
   <body role="document" _texified="true" data-spy="scroll" data-target=".navbar">
 
-    <div class="jumbotron" style="background: url('img/book_pencil.png') no-repeat fixed;">
+    <div class="jumbotron" style="background: url('img/book_pencil.png') no-repeat fixed center center;">
       <div class="overlay"></div>
       <div class="header-title">
         <h1>Michael T. Schmidt</h1>
@@ -59,7 +62,7 @@
       </div> <!-- container-fluid -->
     </nav>
 
-    <div class="info">
+    <div class="info"  itemscope itemtype="http://schema.org/Person">
 
       <div class="infocell">
         <a class="anchor" id="about"></a>
@@ -69,13 +72,18 @@
           <div class="row">
             <div class="col-md-4">
               <p>
+                Hi, I'm <b><span itemprop="name"><span itemprop="givenName">Michael</span> <span itemprop="additionalName">T.</span> <span itemprop="familyName">Schmidt</span></span></b>.
+                <span itemprop="description">
                 I am an experienced mathematician, physicist, programmer, systems administrator, and teacher.
-                Presently I teach middle and high school mathematics at the Fulton School in St. Albans, Missouri.
+                After studying physics and mathematics at the <a href="#education">University of Colorado</a>
+                Presently I am the <span itemprop="jobTitle">Upper-School Mathematics Teacher</span> at the Fulton School in St. Albans, Missouri.
+                
+                </span>
               </p>
             </div>
             <div class="col-md-4">
               <div>
-                <img src="img/mike_trail.png" alt="Michael T. Schmidt" class="img-responsive img-rounded">
+                <img itemprop="image" src="img/mike_trail.png" alt="Michael T. Schmidt" class="img-responsive img-rounded"/>
               </div>
             </div>
             <div class="col-md-4">
@@ -87,7 +95,7 @@
                 <a href="https://github.com/schmidmt"><div class="icon icon-github"></div></a>
                 <a href="https://www.linkedin.com/pub/michael-schmidt/44/6b6/ba0/"><div class="icon icon-linkedin"></div></a>
                 <a href="https://www.facebook.com/schmidmt"><div class="icon icon-facebook"></div></a>
-                <a href="https://plus.google.com/+MichaelSchmidt_mts/about"><div class="icon icon-googleplus"></div></a>
+                <a href="https://plus.google.com/+MichaelSchmidt_mts/about" rel="author"><div class="icon icon-googleplus"></div></a>
               </div>
             </div>
           </div>
@@ -107,8 +115,10 @@
             <div class="col-md-4">
               <h3>Physic&aelig; Mathematica</h3>
               <p class="lead">Math and Physics from Fundamentals</p>
-              <a href="http://github.com/schmidmt/Physicae-Mathematica">GitHub Page</a><br/>
-              <a href="#">PDF</a>
+                <ul class="no-bullets center-text">
+                  <li><a href="http://github.com/schmidmt/Physicae-Mathematica">GitHub Page</a></li>
+                  <li><a href="#">PDF</a></li>
+                </ul>
             </div>
             <div class="col-md-4">
               <p class="nophone">
@@ -121,13 +131,13 @@
           
           <hr>
 
-          <div class="row">
+          <div class="row" itemprop="owns" itemscope itemtype="http://schema.org/Blog">
             <div class="col-md-4">
-              <img class="img-thumbnail" src="" alt="" width="100%"/>
+              <img itemprop="image" class="img-thumbnail" src="img/Duality.io.png" alt="Duality.IO" width="100%"/>
             </div>
             <div class="col-md-4">
-              <h3>Unnamed Blog</h3>
-              <p class="lead">A blog about math, physics, computers, and education</p>
+              <h3 itemprop="name"><a href="http://duality.io" itemprop="sameAs">Duality.io</a></h3>
+              <p class="lead" itemprop="description">A blog about math &amp; physics</p>
             </div>
             <div class="col-md-4">
               <p class="nophone">
@@ -155,10 +165,11 @@
         <div class="container">
           <h1>Resum&egrave;</h1>
           <hr>
+            <a class="anchor" id="education"></a>
             <h2>Education</h2>
-            <div class="row">
+            <div class="row" itemprop="alumniOf" itemscope itemtype="http://schema.org/CollegeOrUniversity">
               <div class="col-md-4">
-                <h3>University of Colorado</h3>
+                <h3 itemprop="name">University of Colorado at Boulder</h3>
                 <p class="lead">2006-2012</p>
               </div>
               <div class="col-md-8">
@@ -174,7 +185,7 @@
                       Boulder, CO, USA
                       <br/>
                       <span class="glyphicon glyphicon-link"></span>
-                      <a href="http://www.colorado.edu">www.colorado.edu</a>
+                      <a itemprop="sameAs" href="http://www.colorado.edu">www.colorado.edu</a>
                     </span>
                   </span>
                 </p>
@@ -182,13 +193,13 @@
             </div> <!-- Univ of Colorado -->
             <hr>
             <h2>Experience</h2>
-            <div class="row">
+            <div itemprop="worksFor" itemscope itemtype="http://schema.org/School" class="row">
               <div class="col-md-4">
-                <h3>The Fulton School at St. Albans</h3>
+                <h3 itemprop="name">The Fulton School at St. Albans</h3>
                 <p class="lead">2013-2014</p>
               </div>
               <div class="col-md-8">
-                <p class="nophone">
+                <span class="nophone">
                   <strong>Upper School Mathematics Teacher</strong><br/>
                   <span>
                     <p class="nophone">
@@ -203,10 +214,10 @@
                       St. Albans, MO, USA
                       <br/>
                       <span class="glyphicon glyphicon-link"></span>
-                      <a href="http://tfssa.org">TFSSA.ORG</a>
+                      <a itemprop="sameAs" href="http://tfssa.org">TFSSA.ORG</a>
                     </span>
                   </span>
-                </p>
+                </span>
               </div>
             </div> <!-- TFSSA -->
 
@@ -219,7 +230,7 @@
                 <p class="nophone">
                   <strong>DevOps, Lecturer, Web-Designer</strong><br/>
                   <span>
-                    <p class="nophone">
+                    <span class="nophone">
                       I set up and managed provisioning systems using Puppet and XCat to provision compute nodes, login nodes, and utility servers.
                       As a part of researcher outreach, I lectured on HPC topics as part of a weekly seminar.
                       Additionally, I worked with user to debug and profile their code so it would work optimally on our systems.
@@ -234,7 +245,7 @@
                       <a href="http://rc.colorado.edu">RC.Colorado.EDU</a>
                     </span>
                   </span>
-                </p>
+                </span>
               </div>
             </div> <!-- CURC -->
 
@@ -247,7 +258,7 @@
                 <p class="nophone">
                   <strong>DevOps</strong><br/>
                   <span>
-                    <p class="nophone">
+                    <span class="nophone">
                       Supported developers and maintained an infrastructure of &approx;800 used to analyze and present product data.
                       Most machines were visualized using OpenVZ and managed with Puppet. 
                       Monitoring was all done with Nagios, Cacti, Ganglia and home-brewed code.
@@ -263,7 +274,7 @@
                       <a href="http://pronto.com">Pronto.COM</a>
                     </span>
                   </span>
-                </p>
+                </span>
               </div>
             </div> <!-- Pronto -->
 
@@ -273,7 +284,7 @@
                 <p class="lead">2010-2012</p>
               </div>
               <div class="col-md-8">
-                <p class="nophone">
+                <span class="nophone">
                   <strong>Graduate Teaching Assistant</strong><br/>
                   <span>
                     <p class="nophone">
@@ -290,7 +301,7 @@
                       <a href="http://physics.colorado.com">Physics.Colorado.EDU</a>
                     </span>
                   </span>
-                </p>
+                </span>
               </div>
             </div> <!-- CU Physics -->
 
@@ -300,7 +311,7 @@
                 <p class="lead">2007-2009</p>
               </div>
               <div class="col-md-8">
-                <p class="nophone">
+                <span class="nophone">
                   <strong>Research Assistant</strong><br/>
                   <span>
                     <p class="nophone">
@@ -319,7 +330,7 @@
                       <a href="http://cips.colorado.com">CIPS.Colorado.EDU</a>
                     </span>
                   </span>
-                </p>
+                </span>
               </div>
             </div> <!-- Research Assistant -->
 
@@ -722,15 +733,15 @@
           <h1>Contributions</h1>
           <hr>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" itemprop="knows" itemscope itemtype="http://schema.org/Person">
               <h3>Physics Mill</h3>
-              <p class="lead">Jonah Miller's Blog on Math/Physics</p>
-              <span class="glyphicon glyphicon-link"></span><a href="http://www.thephysicsmill.com/author/schmidmt/">www.thephysicsmill.com/author/schmidmt/</a>
+              <p class="lead"><span itemprop="name">Jonah Miller</span>'s Blog on Math/Physics</p>
+              <span class="glyphicon glyphicon-link"></span><a itemprop="url" href="http://www.thephysicsmill.com/">www.thephysicsmill.com</a>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" itemprop="knows" itemscope itemtype="http://schema.org/Person">
               <h3>MontessoriMuddle</h3>
-              <p class="lead">A blog about education from Dr. Lensyl Urbano</p>
-              <span class="glyphicon glyphicon-link"></span><a href="http://montessorimuddle.org/?s=schmidt">montessorimuddle.org/?s=schmidt</a>
+              <p class="lead">A blog about education from <span itemprop="name">Dr. Lensyl Urbano</span></p>
+              <span class="glyphicon glyphicon-link"></span><a itemprop="url" href="http://montessorimuddle.org/">montessorimuddle.org</a>
             </div>
           </div>
         </div> <!-- Container -->
@@ -774,6 +785,10 @@
       <a class="anchor" id="bottom"></a>
       <div class="overlay">
       </div>
+      <div class="row">
+        <div class="col-md-4-offset-4">
+        </div>
+      </div>
     </div> <!-- Bottom -->
 
 
@@ -790,7 +805,7 @@
 
     <!-- Local Script -->
     <script src="js/script.js"></script>
-    
+
   </body>
 </html>
 

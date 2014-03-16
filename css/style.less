@@ -4,7 +4,8 @@
 @images: "../img";
 
 //@background-color: #434242;
-@background-color: #3A4B73;
+//@background-color: #3A4B73;
+@background-color: darken(blue, 35%);
 @background-dark: darken(@background-color, 10%);
 //@background-light: lighten(@background-color, 10%);
 @background-light: #FFFFFF;
@@ -280,6 +281,9 @@ ul.no-bullets {
   margin-right: auto;
 }
 
+.center-text {
+  text-align: center;
+}
 
 /* Create a Psuedo Element for offsetting tags to account for header */
 a.anchor{
@@ -314,6 +318,9 @@ a.anchor{
 
 
 @media (max-width: 767px) { 
+  .jumbotron {
+    background-position: center center;
+  }
 	.jumbotron .container {
     top: 20%;
     padding-top: 0px;
