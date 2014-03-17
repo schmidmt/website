@@ -5,7 +5,7 @@ $(document).ready(function() {
     applyNavigation();
     applyNavHeightFix();
     applyResize();
-    decodeEmail();
+    //decodeEmail();
     applySkills();
 })
 
