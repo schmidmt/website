@@ -5,6 +5,7 @@ $(document).ready(function() {
     applyNavigation();
     applyNavHeightFix();
     applyResize();
+    applyGitHub();
 
     $("img.lazy").lazyload({
       threshold : 200
@@ -13,7 +14,9 @@ $(document).ready(function() {
     $("div.lazy").lazyload({
       effect : "fadeIn"
     });
-
+    
+    getFeed("http://duality.io/feed/");
+    
 })
 
 
@@ -74,5 +77,70 @@ function applyResize() {
         stickyNavDisp = $('.scroll-down').offset().top + $('.scroll-down').outerHeight();
         applyHeader();
         applyNavHeightFix();
+    });
+}
+
+function getFeed(rssurl) {
+  $.get(rssurl, function(data) {
+      var $xml = $(data);
+      $xml.find("item").each(function() {
+          var $this = $(this),
+              item = {
+                  title: $this.find("title").text(),
+                  link: $this.find("link").text(),
+                  description: $this.find("description").text(),
+                  pubDate: $this.find("pubDate").text(),
+                  author: $this.find("author").text()
+          }
+          //Do something with item here...
+          alert(item.title)
+      });
+  });
+}
+
+function applyGitHub() {
+  $.getJSON( "github_schmidmt.json", function( data ) {
+      var items = [];
+      var itemssmall = [];
+      items.push( "<thead>" );
+      items.push( "<tr>" );
+      items.push( "<th data-hide=\"phone,tablet\"></th>" );
+      items.push( "<th>Project</th>" );
+      items.push( "<th data-hide=\"phone,tablet\">Description</th>" );
+      items.push( "<th data-hide=\"phone,tablet\">Language</th>" );
+      items.push( "<th data-hide=\"phone,tablet\"><i class=\"fa fa-star\"></i></th>" );
+      items.push( "<th data-hide=\"phone,tablet\"><i class=\"fa fa-eye\"></i></th>" );
+      items.push( "</tr>" );
+      items.push( "</thead>" );
+      items.push( "<tbody>" );
+
+      $.each( data, function( key, val ) {
+        items.push( "<tr id='" + key + "'>" );
+        if (val["fork"]) {
+          items.push( "<td><i class=\"fa fa-code-fork\"></i></td>" );
+        } else {
+          items.push( "<td></td>" );
+        }
+        items.push( "<td><a href=" + val["html_url"] + ">" + val["name"] + "</a></td>" );
+        items.push( "<td>" + val["description"].split(".")[0] + ".</td>" );
+        items.push( "<td>" + val["language"] + "</td>" );
+        items.push( "<td>" + val["stargazers_count"] + "</td>" );
+        items.push( "<td>" + val["watchers_count"] + "</td>" );
+        items.push( "</tr>" );
+      });
+      items.push( "</tbody>" );
+     
+      $( "<table/>", {
+        "class": "table table-striped table-bordered",
+        "id": "github-table",
+        html: items.join( "" )
+      }).appendTo( ".githubprojects" );
+
+      $("#github-table").footable({
+          breakpoints: {
+            phone: 480,
+            tablet: 1024
+          }
+        });
     });
 }

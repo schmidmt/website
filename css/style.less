@@ -3,20 +3,37 @@
 /* Variables */
 @images: "../img";
 
+/*
+@primary-1: #FF8D20;
+@secondary-1: #17889D;
+
+@primary-2: #DF8835;
+@secondary-2: #237989;
+
+@primary-3: #D27114;
+@secondary-3: #0E6F82;
+
+@primary-4: #FFB771;
+@secondary-4: #69D1E4;
+
+@primary-5: #FFD8B2;
+@secondary-5: #A1DAE4;
+*/
+
 //@background-color: #434242;
 //@background-color: #3A4B73;
-@background-color: darken(blue, 35%);
-@background-dark: darken(@background-color, 10%);
+//@background-color: darken(blue, 35%);
+//@background-color: #FF6600;
+@background-color: lighten(grey, 90%);
+@background-dark: darken(@background-color, 5%);
 //@background-light: lighten(@background-color, 10%);
 @background-light: #FFFFFF;
 
 @background-light-text: #000000;
-@background-dark-text: #FFFFFF;
+//@background-dark-text: #FFFFFF;
+@background-dark-text: #000000;
 
 @text-color: #FFFFFF;
-
-/* Fonts */
-@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic|Domine:400,700);
 
 /* Body */
 
@@ -24,6 +41,7 @@ body {
   color: @text-color;
   //background: none repeat scroll 0 0 @background-light;
   font-family: 'Libre Baskerville', serif;
+
 }
 
 
@@ -32,7 +50,8 @@ body {
 @title-opacity: 0.6;
 @title-text: #FFFFFF;
 @jumbotron-color: #22A39F;
-@jumbotron-overlay-color: lighten(@background-color, 20%);
+//@jumbotron-overlay-color: lighten(@background-color, 20%);
+@jumbotron-overlay-color: #336666;
 @jumbotron-overlay-opaci: 0.4;
 
 .jumbotron {
@@ -113,7 +132,8 @@ body {
     > a {
       color: #FFFFFF;
       :hover, :focus {
-        color: @background-color;
+        //color: @background-color;
+        color: #FFFFFF;
       }
     }
     
@@ -142,6 +162,14 @@ body {
 
 
 .info{
+
+  a {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+
   p {
     font-size: 0.9em;
   }
@@ -169,25 +197,32 @@ body {
       text-align: center;
     }
   }
-
+  
+  /* Dark Background */
   > .infocell:nth-child(even) {
     background: none repeat scroll 0 0 @background-dark;
     color: @background-dark-text;
 
+    a {
+      color: @background-dark-text;
+    }
+
     hr {
-      border-color: @background-light;
+      //border-color: @background-light;
+      border-color: grey;
       margin: 40px 0;
       opacity: 0.2;
     }
 
   }
-
+  /* Light Background */
   > .infocell:nth-child(odd) {
     background: none repeat scroll 0 0 @background-light;
     color: @background-light-text;
 
     hr {
-      border-color: @background-dark;
+      //border-color: @background-dark;
+      border-color: grey;
       margin: 40px 0;
       opacity: 0.2;
     }
@@ -203,9 +238,10 @@ body {
             
           span {
             //display: block;
-            :hover {
+            /*:hover {
               background-color: white;
             }
+            */
           }
 
           .ability-title {
