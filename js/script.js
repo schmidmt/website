@@ -104,12 +104,12 @@ function applyGitHub() {
       var itemssmall = [];
       items.push( "<thead>" );
       items.push( "<tr>" );
-      items.push( "<th data-hide=\"phone,tablet\"></th>" );
+      items.push( "<th data-hide=\"phone\"></th>" );
       items.push( "<th>Project</th>" );
-      items.push( "<th data-hide=\"phone,tablet\">Description</th>" );
-      items.push( "<th data-hide=\"phone,tablet\">Language</th>" );
-      items.push( "<th data-hide=\"phone,tablet\"><i class=\"fa fa-star\"></i></th>" );
-      items.push( "<th data-hide=\"phone,tablet\"><i class=\"fa fa-eye\"></i></th>" );
+      items.push( "<th data-hide=\"phone\">Description</th>" );
+      items.push( "<th data-hide=\"phone\">Language</th>" );
+      items.push( "<th data-hide=\"phone\"><i class=\"fa fa-star\"></i></th>" );
+      items.push( "<th data-hide=\"phone\"><i class=\"fa fa-eye\"></i></th>" );
       items.push( "</tr>" );
       items.push( "</thead>" );
       items.push( "<tbody>" );
