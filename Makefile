@@ -7,8 +7,8 @@ REMOTE_HOST    = schmidmt.com
 SERVERSIDE_DIR = ./public_html
 JINJAFY        = ./bin/jinjafy
 
-ALL: css text_resume index.html
-.DEFAULT: css text_resume index.html
+ALL: css resume index.html
+.DEFAULT: css resume index.html
 
 index.html: $(CONTENT_JSON) index.tmpl
 			$(JINJAFY) index.tmpl $(CONTENT_JSON) -o index.html
