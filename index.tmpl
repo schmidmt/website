@@ -53,10 +53,10 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="#about">About Me</a></li>
+            <li><a href="#publications">Publications</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#resume">Resum&egrave;</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#publications">Publications</a></li>
             <li><a href="#contrib">Contributions</a></li>
             <li><a href="#interests">Interests</a></li>
           </ul>
@@ -124,6 +124,31 @@
           </div>
         </div> <!-- Container -->
       </div> <!-- about -->
+      
+      <div class="infocell">
+        <a class="anchor" id="publications"></a>
+        <div class="container">
+          <h1>Publications</h1>
+          <hr>
+          {% for pub in Publications -%}
+          <div class="row">
+            <div class="col-md-4">
+              <h3>{{ pub.title }}</h3>
+              <span class="glyphicon glyphicon-link"><a href="{{ pub.linkhref }}">{{ pub.linkname }}</a></span><br/>
+              {{ pub.note }}
+            </div>
+            <div class="col-md-8">
+              <p class="nophone">
+              <div>
+                <strong>Abstract:</strong>
+                {{ pub.abstract }}
+              </div>
+              </p>
+            </div>
+          </div>
+          {% endfor -%}
+        </div> <!-- Conainer -->
+      </div> <!-- Publications -->
 
       <div class="infocell">
         <a class="anchor" id="projects"></a>
@@ -283,31 +308,6 @@
             </div>
           </div> <!-- Container -->
       </div> <!-- Skills -->
-      
-      <div class="infocell">
-        <a class="anchor" id="publications"></a>
-        <div class="container">
-          <h1>Publications</h1>
-          <hr>
-          {% for pub in Publications -%}
-          <div class="row">
-            <div class="col-md-4">
-              <h3>{{ pub.title }}</h3>
-              <span class="glyphicon glyphicon-link"><a href="{{ pub.linkhref }}">{{ pub.linkname }}</a></span><br/>
-              {{ pub.note }}
-            </div>
-            <div class="col-md-8">
-              <p class="nophone">
-              <div>
-                <strong>Abstract:</strong>
-                {{ pub.abstract }}
-              </div>
-              </p>
-            </div>
-          </div>
-          {% endfor -%}
-        </div> <!-- Conainer -->
-      </div> <!-- Publications -->
 
       <div class="infocell">
         <a class="anchor" id="contrib"></a>

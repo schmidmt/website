@@ -14,9 +14,9 @@ index.html: $(CONTENT_JSON) index.tmpl
 			$(JINJAFY) index.tmpl $(CONTENT_JSON) -o index.html
 
 .PHONY: push
-push: index.html css text_resume
-			rsync -avvP --exclude="*.sw[op]" $(PAGEDIR)/{*.html,css,img,js,sitemap.xml,text_resume/resume.pdf} $(REMOTE_HOST):$(SERVERSIDE_DIR)/.
-			#rsync -avP --exclude="*.sw[op]" $(PAGEDIR)/{*.html,css,img,js,sitemap.xml,text_resume/resume.pdf} schmidmt.duckdns.org:/var/www/default/htdocs/.
+push: index.html css resume
+			rsync -avvP --exclude="*.sw[op]" $(PAGEDIR)/{*.html,css,img,js,sitemap.xml,resume/resume.pdf} $(REMOTE_HOST):$(SERVERSIDE_DIR)/.
+			#rsync -avP --exclude="*.sw[op]" $(PAGEDIR)/{*.html,css,img,js,sitemap.xml,resume/resume.pdf} schmidmt.duckdns.org:/var/www/default/htdocs/.
 
 .PHONY: css
 css: force
