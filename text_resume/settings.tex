@@ -1,0 +1,153 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[usenames]{color}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+\usepackage{titlesec}
+\usepackage{helvetica}
+\usepackage{multicol}
+\usepackage{lastpage}
+\usepackage{ifsym}
+\usepackage{mdwlist}
+\usepackage[english]{babel}
+\usepackage[pdftex]{hyperref}
+\usepackage{subfig}
+\usepackage{verbatim}
+\usepackage{arydshln}
+\usepackage{calc}
+\usepackage{longtable}
+\usepackage[left=2cm,top=1.5cm,right=2cm,bottom=1.7cm,letterpaper]{geometry}
+
+\hypersetup{
+    unicode=true,          % non-Latin characters in Acrobatâ~@~Ys bookmarks
+    pdftoolbar=true,        % show Acrobatâ~@~Ys toolbar?
+    pdfmenubar=true,        % show Acrobatâ~@~Ys menu?
+    pdffitwindow=true,      % page fit to window when opened
+    pdftitle={Michael Schmidt Resum\'{e}},    % title
+    pdfauthor={Michael Schmidt},     % author
+    pdfsubject={Resume},   % subject of the document
+    pdfcreator={MTS},   % creator of the document
+    pdfkeywords={Resume,Schmidt}, % list of keywords
+    pdfnewwindow=false,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links
+    citecolor=black,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=black           % color of external links
+}
+
+%% General stuff %%
+\newcommand{\fullname}{Michael T.\ Schmidt}
+
+% Headers
+\usepackage{fancyhdr}
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+%% Header %%
+\pagestyle{fancy}
+%\fancyhead{\sffamily\leftmark}
+%\fancyhead[LE]{\sffamily\rightmark}
+%\fancyfoot[R]{\thepage / \pageref{LastPage}}
+%\fancyfoot[C]{Resum\`{e}}
+\fancyfoot[C]{\fullname}
+
+%% Tikz %%
+\usetikzlibrary{shapes,decorations}
+
+\tikzstyle{fancytitle} =[fill=blue, text=white]
+
+\tikzstyle{eduBox} = [draw=blue, fill=white!100, very thick,
+    rectangle, rounded corners, inner sep=5pt, inner ysep=10pt]
+\tikzstyle{eduTitle} =[fill=blue, text=white]
+
+\tikzstyle{pubBox} = [draw=blue, fill=white!100, very thick,
+    rectangle, rounded corners, inner sep=5pt, inner ysep=10pt]
+\tikzstyle{pubTitle} =[fill=blue, text=white]
+
+\tikzstyle{expBoxW} = [draw=blue, fill=white!100, very thick,
+    rectangle, rounded corners, inner sep=20pt, inner ysep=10pt]
+\tikzstyle{expBox} = [draw=blue, fill=white!100, very thick,
+    rectangle, rounded corners, inner sep=5pt, inner ysep=10pt]
+\tikzstyle{expTitle} =[fill=blue, text=white]
+
+\tikzstyle{abtBox1} = [draw=yellow, fill=white!100, very thick,
+    rectangle, rounded corners, inner sep=5pt, inner ysep=10pt]
+\tikzstyle{abtTitle1} =[fill=yellow, text=black]
+
+\tikzstyle{abtBox2} = [draw=red, fill=white!100, very thick,
+    rectangle, rounded corners, inner sep=5pt, inner ysep=10pt]
+\tikzstyle{abtTitle2} =[fill=red, text=black]
+
+\tikzstyle{proBox} = [draw=red, fill=white!100, very thick,
+    rectangle, rounded corners, inner sep=5pt, inner ysep=10pt]
+\tikzstyle{proTitle} =[fill=red, text=black]
+
+\tikzstyle{sklBox} = [draw=yellow, fill=white!100, very thick,
+    rectangle, rounded corners, inner sep=5pt, inner ysep=10pt]
+\tikzstyle{sklTitle} =[fill=yellow, text=black]
+
+\tikzstyle{tlkBox} = [draw=yellow, fill=white!100, very thick,
+    rectangle, rounded corners, inner sep=5pt, inner ysep=10pt]
+\tikzstyle{tlkTitle} =[fill=yellow, text=black]
+
+%% Handy Functions %% 
+\newcommand{\splitpro}[2]{
+  \begin{minipage}[t]{0.19\textwidth}
+    \begin{flushleft}
+    \textbf{#1}
+    \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[t]{0.8\textwidth}
+    \begin{flushleft}
+    #2
+    \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+  \vspace{0.25cm}
+}
+
+\newcommand{\splitprol}[2]{
+  \begin{minipage}[t]{0.8\textwidth}
+    \begin{flushleft}
+    #2
+    \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[t]{0.19\textwidth}
+    \begin{flushright}
+    \textbf{#1}
+    \footnotesize{\ }
+    \end{flushright}
+  \end{minipage}
+  \vspace{0.25cm}
+}
+
+\newcommand{\refsplit}[7]{
+  \begin{minipage}[t]{0.35\textwidth}
+    \begin{flushleft}
+      \textbf{#1}\\
+      \small #2 \ \\
+      \small #3 \ \\
+      #4\ \\
+      \scriptsize#5 \normalsize \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[t]{0.6\textwidth}
+    \begin{flushleft}
+      \textbf{Relationship: #6}.
+      #7
+      %\vspace{0.1cm}
+    \end{flushleft}
+  \end{minipage} \vspace{0.5cm}
+
+}
+
+
+\selectlanguage{english}
+

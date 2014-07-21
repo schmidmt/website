@@ -1,0 +1,213 @@
+\input{tex/settings.tex}
+
+\usepackage{mathabx}
+\usepackage{enumitem}
+\begin{document}
+
+%%%%%%%%%%%%%%
+%%% HEADER %%%
+%%%%%%%%%%%%%%
+
+((* set showheader = false *))
+
+((* if showheader -*))
+% drawing parameters
+\newcommand{\circdist}{1/8 }  % distance from origin to center of circles
+\newcommand{\circrad}{1/2} % radius of the circles
+\newcommand{\circlethickness}{0.2mm} % uh, thickness of the circles
+
+% distance from the origin to the three "interior" intersections
+\pgfmathsetmacro{\intrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) - \circdist/2}
+
+% distance from the origin to the three "exterior" intersections
+\pgfmathsetmacro{\extrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) + \circdist/2}
+
+% so we can just specify an angle and get the correct color for the circle
+\colorlet{30}{yellow}
+\colorlet{150}{blue}
+\colorlet{270}{red}
+
+% draws one of our circles
+\newcommand{\mycircle}[1]{%
+  \draw[thick, double distance=\circlethickness, double=#1]
+  (#1:\circdist) circle (\circrad);}
+((* endif -*))
+\begin{center}
+((* if showheader -*))
+\begin{tikzpicture}[scale=2]
+  % draw the circles
+  \foreach \angle in {30, 150, 270}
+  {
+    \mycircle{\angle}
+  }
+
+  % we need to re-do two of the intersections so that the rings
+  % interlock and aren't just piled on top of one another
+  \foreach \angle/\rad in {45/\intrad, 90/\extrad}
+  {
+    \begin{scope}
+      \clip (\angle:\rad) circle (8/4*\circlethickness);
+      %                          you may need to adjust the 5/4 above so
+      %                          the clipping area is big enough
+      \mycircle{30}
+      \mycircle{270}
+    \end{scope}
+  }
+\end{tikzpicture}
+
+((* endif -*))
+
+{\huge\textsc{\fullname}}\\
+
+{\footnotesize \href{mailto:((( email ))) }{\textsc{ ((( email ))) }}} \\
+{\footnotesize \href{http://((( website )))}{ ((( website ))) }} \\
+{\footnotesize \href{http://((( phone )))}{ ((( phone ))) }}
+\end{center}
+
+%%%%%%%%%%%%%%%%%
+%%% EDUCATION %%%
+%%%%%%%%%%%%%%%%%
+
+% Education
+\begin{minipage}[c]{0.46\textwidth}
+  \begin{tikzpicture}
+    \node [abtBox1] (box){%
+      \begin{minipage}{\textwidth}
+      ((* for edu in Education|sort(True, attribute='_id') -*))
+        \textbf{((( edu.Degree ))) - ((( edu.Field|merge_list(' \& ') )))} \\
+        ((( edu.Institution ))) ((* if not loop.last *)) \\ ((* endif *))
+      ((* endfor -*))
+      \end{minipage}
+    };
+    \node[abtTitle1, right=10pt] at (box.north west) {Education};
+  \end{tikzpicture}
+\end{minipage}
+\hfill
+%%%%%%%%%%%%%%%%%%%%
+%%% Publications %%%
+%%%%%%%%%%%%%%%%%%%%
+\begin{minipage}[c]{0.45\textwidth}
+  \begin{tikzpicture}
+    \node [abtBox2] (box){%
+      \begin{minipage}{\textwidth}
+        ((* for pub in Publications -*))
+        \textbf{((( pub.title )))} \\
+        {\footnotesize ((( pub.linkname ))) ((* if pub.note *)) \\ ((( pub.note ))) ((* endif *))}
+        ((* endfor -*))
+      \end{minipage}
+    };
+    \node[abtTitle2, right=10pt] at (box.north west) {Publications};
+  \end{tikzpicture}
+\end{minipage}
+
+%%%%%%%%%%%%%%%%%%
+%%% Experience %%%
+%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}
+  \node [expBox] (box){%
+    \begin{minipage}{\textwidth}
+      \begin{center}
+      \begin{tabular*}{\textwidth}{l*{5}{c}}
+        \textbf{Position}      & \textbf{Company}       & \textbf{Division}  & \textbf{Start} & \textbf{End} \\
+        \hline
+        \noalign{\smallskip}
+      ((* for exp in Experience -*))
+        ((* if exp.Position_short *)) ((( exp.Position_short ))) ((* else *)) ((( exp.Position|merge_list(' \& ') ))) ((* endif *))
+          & ((( exp.Company ))) 
+          & ((( exp.Division )))
+          & ((( exp.Start|dateToMonthYear )))
+          & ((( exp.End|dateToMonthYear ))) \\
+        \multicolumn{5}{p{0.98\linewidth}}{\footnotesize{
+          ((( exp.Description|escape_tex )))
+        }}\\
+        ((* if exp.Keywords *))
+          \multicolumn{5}{p{0.98\linewidth}}{\footnotesize{
+            \textbf{Skills: ((( exp.Keywords|merge_list(', ') )))}
+          }}\\
+        ((* endif *))
+        ((* if not loop.last -*))
+          \noalign{\smallskip}
+          \hdashline
+          \noalign{\smallskip}
+        ((* endif -*))
+      ((* endfor -*))
+      \end{tabular*}
+      \end{center}
+    \end{minipage}
+  };
+  \node[fancytitle, right=10pt] at (box.north west) {Experience};
+\end{tikzpicture}
+
+%%%%%%%%%%%%%%%%
+%%% Projects %%%
+%%%%%%%%%%%%%%%%
+
+\begin{tikzpicture}
+  \node [proBox] (box){%
+    \begin{minipage}{\textwidth}
+      ((* for proj in Projects | sort(True, attribute='active') | firstn(4)  -*))
+        \splitpro{((( proj.name|escape_tex ))) \\ \footnotesize{((* if proj.active *)) Active ((* else *)) Innactive ((* endif *))}}{
+          ((( proj.description|escape_tex )))
+          ((* if proj.link and proj.link.github -*))
+            \\
+            \textbf{GitHub}: \href{((( proj.link.github )))}{((( proj.link.github|escape_tex )))}
+          ((* elif proj.link and proj.link.site -*))
+            \\
+            \textbf{Link}: \href{((( proj.link.site )))}{((( proj.link.site|escape_tex )))}
+          ((* endif -*))
+        }
+        ((* if not loop.last -*))
+        \hspace{1em}
+        ((* endif -*))
+      ((* endfor *))
+    \end{minipage}
+  };
+  \node[proTitle, right=10pt] at (box.north west) {Projects};
+\end{tikzpicture}%
+
+%%%%%%%%%%%%%%
+%%% SKILLS %%%
+%%%%%%%%%%%%%%
+
+((* set skill_columns = 3 *))
+((* set skill_width = 0.94 *))
+
+\begin{tikzpicture}
+  \node [sklBox] (box){%
+    \begin{minipage}{\textwidth}
+      ((* for skillgroup in skills|sort(True, attribute='weight') -*))
+        \begin{center}
+          \textbf{\Large ((( skillgroup.field|merge_list(' & ')|escape_tex )))} \\
+        \end{center}
+        % subfield ((( skillgroup.subfields|length )))
+        \begin{tabular}{
+          ((* if skillgroup.subfields|length >= skill_columns -*))
+            ((* for i in range(0, skill_columns) -*))
+              p{((( skill_width / skill_columns )))\textwidth}
+            ((* endfor -*))
+          ((* else -*))
+            ((* for i in range(0, skillgroup.subfields|length) -*))
+              p{((( skill_width / skillgroup.subfields|length )))\textwidth}
+            ((* endfor -*))
+          ((* endif -*))
+          }
+          ((* for subfield in skillgroup.subfields -*))
+            \textbf{\large ((( subfield.area|escape_tex )))}
+            \begin{itemize}[leftmargin=*]
+              \setlength{\itemsep}{0cm}%
+              ((* for skill, val in subfield.skills.iteritems() -*))
+                \item[] ((( skill|escape_tex ))) 
+                  \hfill $ ((* for i in range(0, settings.max_rank) *)) ((* if loop.index0 < val *)) \bigstar ((* else *)) ((* endif *)) ((* endfor *)) $
+              ((* endfor *))
+            \end{itemize}
+            ((* if loop.index is divisibleby(3) or loop.last *)) \\ \noalign{\medskip} ((* else *)) & ((* endif *))
+          ((* endfor -*))
+        
+        \end{tabular}
+    ((* endfor -*))
+    \end{minipage}
+  };
+  \node[sklTitle, right=10pt] at (box.north west) {Abilities};
+\end{tikzpicture}
+
+\end{document}
