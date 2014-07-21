@@ -1,0 +1,280 @@
+{
+  "name": "Michael T. Schmidt",
+  "header": {
+    "title": "Resume &amp; Info",
+    "lead": "A Bit About Me",
+    "description": "The webpage of Michael T. Schmidt with contact information, his resume, and portfolio."
+  },
+  "email": "schmidmt@gmail.com",
+  "phone": "719-778-7739",
+  "website": "schmidmt.com",
+  "Social": {
+    "github": "https://github.com/schmidmt",
+    "linkedin": "https://www.linkedin.com/pub/michael-schmidt/44/6b6/ba0/",
+    "facebook": "https://www.facebook.com/schmidmt",
+    "google": "https://plus.google.com/+MichaelSchmidt_mts/about"
+  },
+  "About": [
+    "Hi, I'm <b><span itemprop=\"name\"><span itemprop=\"givenName\">Michael</span> <span itemprop=\"additionalName\">T.</span> <span itemprop=\"familyName\">Schmidt</span></span></b>. <span itemprop=\"description\"> I am an experienced mathematician, physicist, programmer, systems administrator, and teacher. Presently, I am the <span itemprop=\"jobTitle\">Upper-School Mathematics Teacher</span> at the Fulton School in St. Albans, Missouri.</span>",
+     "While most of my education is in physics, I think of myself as a mathematician. I have preferred the rigor of math and it's application to physics to the more surveying methods in a physics treatment.",
+     "Additionally, I have worked in distributed computing, both on the operations and programmer sides. I find great satisfaction within this work as it combines all of my passions: math, physics, and computer science.",
+     "In the greater sense, my goal is to broaden my understanding of the world and use that knowledge to create novel solutions to seemingly intractable problems."
+  ],
+  "Projects": [
+    {
+      "name": "Physicae Mathematica",
+      "tagline": "Math and Physics from Fundamentals",
+      "active": true,
+      "description": "Physicae Mathematica is a collection of notes and comments on mathematics and physics. Often a good method to learning to is attempt to teach a subject and this is what I do with this collection. Anyone who is interested in contributing to it is welcome (see the GitHub page for details). Eventually I would like this to be a guide to many subjects within math, physics, and computer science.",
+      "image": "img/physicae_cover.png",
+      "link": {
+        "github": "http://github.com/schmidmt/Physicae-Mathematica",
+        "pdf": "http://schmidmt.com/physicae/physicae-current.pdf"
+      }
+    },
+    {
+      "name": "Duality.io",
+      "tagline": "A blog about math &amp; physics",
+      "active": true,
+      "description": "Duality.io is a blog about mathematics and physics. Created to fill a gap in science blogs, the site assumes a knowledge of calculus (but no more). I started Duality.io to share my interest in mathematics while exemplifying it with physics.",
+      "image": "img/Duality.io.png",
+      "link": {
+        "site": "http://duality.io"
+      }
+    },
+    {
+      "name": "Raspberry Pi Smart Thermostat",
+      "tagline": "A learning thermostat",
+      "active": true,
+      "description": "Existing smart thermostats are often quite expensive and lack the customizability which I desired. To remedy this, I have started work on a learning thermostat built on a Raspberry Pi. The device is aware of devices on the network so it can customize for its current occupants. The thermostat is predictive and adaptive to weather outside and in."
+    },
+    {
+      "name": "Phishing Detection",
+      "active": false,
+      "description": "The University of Colorado at one point was suffering from spammers phishing accounts and using them to send spam. In addition to a public awareness campaign, I built a system to find accounts which exhibited signs of being compromised. Taking in metrics from historical and current activity, the program was able to predict when an account was compromised and alert administrators."
+    },
+    {
+      "name": "Spins",
+      "tagline": "N-Dimensional Ising Renormalization",
+      "active": false,
+      "description": "As a graduate student studying Field Theory at C.U. Boulder I wrote a piece of code to look at critical phenomena. This code allows any number of dependent variables and any lattice configuration. Furthermore, the code allows for renormalization operations to be applied to the lattice as to seek critical coupling constants.",
+      "link": {
+        "github": "http://github.com/schmidmt/Spins"
+      }
+    }
+  ],
+  "Education": [
+    {
+      "_id": 1,
+      "Degree": "Masters of Science",
+      "Field": "Physics",
+      "Start": "2010-08-01",
+      "End": "2012-05-20",
+      "Institution": "University of Colorado at Boulder",
+      "Location": "Boulder, CO, USA",
+      "link": "www.colorado.edu"
+    },
+    {
+      "_id": 0,
+      "Degree": "Bachelor of Arts",
+      "Field": ["Physics", "Mathematics"],
+      "Start": "2006-08-01",
+      "End": "2010-05-20",
+      "Institution": "University of Colorado at Boulder",
+      "Location": "Boulder, CO, USA",
+      "link": "www.colorado.edu"
+    }
+  ],
+  "Experience": [
+    {
+      "Company": "The Fulton School at St. Albans",
+      "_Division": "Upper School",
+      "Current": true,
+      "Start": "2013-08-01",
+      "End": "2014-07-31",
+      "Position": "Upper School Mathematics Teacher",
+      "Position_short": "Mathematics Teacher",
+      "Description": "Since my experience teaching as a graduate student was so positive I continued teaching. The Fulton School at St. Albans is a Montessori school serving K-12. I taught primarily middle and high school mathematics using project driven education practices.",
+      "Location": "St. Albans, MO, USA",
+      "linkhref": "http://tfssa.org/",
+      "linkname": "TFSSA.ORG",
+      "Keywords": ["Education", "Mathematics"]
+    },
+    {
+      "Company": "University of Colorado at Boulder",
+      "Division": "Research Computing",
+      "Current": false,
+      "Start": "2009-09-01",
+      "End": "2013-08-01",
+      "Position": ["Developer", "Systems Administrator", "Lecturer"],
+      "Position_short": "DevOps",
+      "Description": "I set up and managed provisioning systems using Puppet and XCat to provision compute nodes, login nodes, and utility servers. As a part of researcher outreach, I lectured on HPC topics as part of a weekly seminar. Additionally, I worked with user to debug and profile their code so it would work optimally on our systems.",
+      "Location": "Boulder, CO, USA",
+      "linkhref": "http://rc.colorado.edu/",
+      "linkname": "RC.Colorado.EDU",
+      "Keywords": ["HPC", "Distributed Computing", "Research", "BigData"]
+    },
+    {
+      "Company": "Pronto",
+      "_Division": "Operations",
+      "Current": false,
+      "Start": "2012-09-01",
+      "End": "2013-03-01",
+      "Position": "Systems Administrator",
+      "Description": "Supported developers and maintained an infrastructure of &approx;800 used to analyze and present product data. Most machines were visualized using OpenVZ and managed with Puppet. Monitoring was all done with Nagios, Cacti, Ganglia and home-brewed code. Much of my time was spent working with developers building machines to host services and debugging existing setups.",
+      "Location": ["Boulder, CO, USA", "New York, New York, USA"],
+      "linkhref": "http://pronto.com/",
+      "linkname": "Pronto.COM",
+      "Keywords": ["Distributed Computing"]
+    },
+    {
+      "Company": "University of Colorado at Boulder",
+      "Division": "Physics Department",
+      "Current": false,
+      "Start": "2010-09-01",
+      "End": "2012-05-01",
+      "Position": "Graduate Teaching Assistant",
+      "Position_short": "Graduate TA",
+      "Description": " In my time as a graduate student, I helped teach courses in introductory physics including classical mechanics, electricity &amp; magnetism, quantum mechanics, and relativity. Additionally, I helped create curriculum and experiments to aide in the educational experience.",
+      "Location": "Boulder, CO, USA",
+      "linkhref": "http://physics.colorado.edu",
+      "linkname": "Physics.Colorado.EDU",
+      "Keywords": []
+    },
+    {
+      "Company": "Center for Integrated Plasma Studies",
+      "Division": "Munsat Lab",
+      "Current": false,
+      "Start": "2007-01-01",
+      "End": "2009-07-01",
+      "Position": "Researcher",
+      "Description": "Researched FRC plasmas specifically looking for magnetic reconnection events. My duties were to build detectors and simulate the experiments. The main experiment took only 100&mu;s to complete so it was necessary to simulate to know where to look for specific events. As a part of ongoing research I gave many lectures on the project's status.",
+      "Location": "Boulder, CO, USA",
+      "linkhref": "http://cips.colorado.com/",
+      "linkname": "CIPS.Colorado.EDU",
+      "Keywords": []
+    }
+  ],
+  "Publications": [
+    {
+      "title": "A Tale of Two Arc Lengths: Metric notions for curves in surfaces in equiaffine space",
+      "abstract": "In Euclidean geometry, all metric notions (arc length for curves, the first fundamental form for surfaces, etc.) are derived from the Euclidean inner product on tangent vectors, and this inner product is preserved by the full symmetry group of Euclidean space (translations, rotations, and reflections). In equiaffine geometry, there is no invariant notion of inner product on tangent vectors that is preserved by the full equiaffine symmetry group. Nevertheless, it is possible to define an invariant notion of arc length for nondegenerate curves, and an invariant first fundamental form for nondegenerate surfaces in equiaffine space. This leads to two possible notions of arc length for a curve contained in a surface, and these two arc length functions do not necessarily agree. In this paper we will derive necessary and sufficient conditions under which the two arc length functions do agree, and illustrate with examples.",
+      "linkhref": "http://arxiv.org/abs/1205.0065",
+      "linkname": "arXiv:1205.0065",
+      "note": "To be published in AMS-Letters."
+    }
+  ],
+  "settings": {
+    "max_rank": 5
+  },
+  "skills": [
+    {
+      "field": ["Research", "Education"],
+      "weight": 0,
+      "subfields": [
+        {
+          "area": "Experimental Design",
+          "space": 4,
+          "skills": {
+            "High Voltage": 5,
+            "Circuit Design": 5,
+            "High Vacuum":5,
+            "Precision Machining": 5
+          }
+        },
+        {
+          "area": "Pedagogy",
+          "space": 4,
+          "skills": {
+            "Research Driven Education": 5,
+            "Classroom Management": 5,
+            "Technological Integration": 5
+          }
+        }
+      ]
+    },
+    {
+      "field": ["Software Engineering", "System Operations"],
+      "weight": 1,
+      "subfields": [
+        {
+          "area": "Programming Paradigm",
+          "space": 4,
+          "skills": {
+            "Distributed Computing": 5,
+            "Machine Learning": 4,
+            "Monte-Carlo Methods": 5,
+            "MapReduce": 4
+          }
+        },
+        {
+          "area": "Languages",
+          "skills": {
+           "Bash": 5,
+            "C/C++": 5,
+            "Fortran": 4,
+            "Java": 4,
+            "PHP": 4,
+            "Perl": 5,
+            "Python": 5,
+            "Ruby": 2
+          }
+        },
+        {
+          "area": "Systems",
+          "skills": {
+            "RedHat": 5,
+            "Gentoo": 5,
+            "Ubuntu": 5,
+            "Solaris": 3
+          }
+        },
+        {
+          "area": "Monitoring",
+          "skills": {
+            "Nagios": 5,
+            "Graphite": 5,
+            "Ganglia":5,
+            "Cacti": 3
+          }
+        },
+        {
+          "area": "Databases",
+          "skills": {
+            "MySQL": 4,
+            "MongoDB": 4,
+            "Redis": 3,
+            "CouchDB": 3
+          }
+        },
+        {
+          "area": "HPC",
+          "skills": {
+            "OpenMPI": 4,
+            "OpenMP": 4,
+            "Slurm": 5,
+            "Torque": 4,
+            "AQMP": 4
+          }
+        },
+        {
+          "area":"Web Frameworks",
+          "skills": {
+            "Tornado": 4,
+            "Django": 4,
+            "Flask": 3
+          }
+        },
+        {
+          "area": "Web Design",
+          "skills": {
+            "HTML5/CSS3": 4,
+            "JavaScript": 4,
+            "Twitter BootStrap": 4,
+            "Less": 4
+          }
+        }
+      ]
+    }
+  ]
+}

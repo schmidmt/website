@@ -1,0 +1,82 @@
+#!/usr/bin/env python
+
+import argparse
+import json
+import pystache
+import jinja2
+import re
+import datetime
+
+def main():
+    
+    parser = argparse.ArgumentParser(
+                description="Run a file through PyStache."
+             )
+
+    parser.add_argument("file", nargs=1, help="Template to render.")
+    parser.add_argument("json", nargs=1, help="JSON file to be set as environment.")
+    parser.add_argument("-o,--output", dest='outfile', nargs=1, help="Send output to file instead of STDOUT.")
+    parser.add_argument('--latex', dest='latex', action='store_true', default=False)
+    args = parser.parse_args()
+
+    env = json.load(open(args.json[0], 'rb'))
+    
+    # Latex Settings
+    latex_env = {
+        'block_start_string': '|{%',
+        'block_end_string': '%}|',
+        'variable_start_string': '|{{',
+        'variable_end_string': '}}|'
+    }
+
+    LATEX_SUBS = (
+        (re.compile(r'\\'), r'\\textbackslash'),
+        (re.compile(r'&amp;'), '&'),
+        (re.compile(r'([{}_#%&$])'), r'\\\1'),
+        (re.compile(r'\\&(\w+);'), r'$\\\1$'),
+        (re.compile(r'~'), r'\~{}'),
+        (re.compile(r'\^'), r'\^{}'),
+        (re.compile(r'"'), r"''"),
+        (re.compile(r'\.\.\.+'), r'\\ldots'),
+    )
+
+    def escape_tex(value):
+        newval = value
+        for pattern, replacement in LATEX_SUBS:
+            newval = pattern.sub(replacement, newval)
+        return newval
+
+
+
+    # Create Env for Jinja2
+    jen = jinja2.Environment();
+
+    if args.latex:
+        jen.block_start_string = '((*'
+        jen.block_end_string = '*))'
+        jen.variable_start_string = '((('
+        jen.variable_end_string = ')))'
+        jen.comment_start_string = '((='
+        jen.comment_end_string = '=))'
+
+    jen.filters.update({
+        'is_list': lambda x: isinstance(x, list),
+        'merge_list': lambda x, y: y.join(x) if isinstance(x, list) else x,
+        'non_empty': lambda x: len(x) > 0,
+        'escape_tex': escape_tex,
+        'dateToMonthYear': lambda x: datetime.datetime.strptime(x, '%Y-%m-%d').strftime('%b %Y'),
+        'dateToYear': lambda x: datetime.datetime.strptime(x, '%Y-%m-%d').strftime('%Y'),
+        'firstn': lambda x, n: x[:n]
+    })
+
+    with open(args.file[0], 'r') as fin:
+        #print pystache.render(f.read(), env)
+        if args.outfile:
+            with open(args.outfile[0], 'w') as fout:
+                fout.write(jen.from_string(fin.read()).render(env))
+        else:
+            print jen.from_string(fin.read()).render(env)
+
+
+if __name__ == '__main__':
+    main()
