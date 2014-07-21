@@ -99,6 +99,8 @@ function getFeed(rssurl) {
 }
 
 function applyGitHub() {
+  // To get the github json file issue
+  // `curl "https://api.github.com/users/schmidmt/repos" -o github_schmidmt.json`
   $.getJSON( "github_schmidmt.json", function( data ) {
       var items = [];
       var itemssmall = [];
