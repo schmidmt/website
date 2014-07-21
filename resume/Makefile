@@ -16,13 +16,17 @@ resume.tex: $(CONTENT_JSON)
 resume.pdf: resume.tex
 	$(call buildtex,resume)
 
+resume.txt: resume.txt.tmpl
+	$(JINJAFY) resume.txt.tmpl $(CONTENT_JSON) -o resume.txt
+	
+
 .PHONY: clean_temp
 clean_temp:
 	rm -rfv  *.out *.bbl *.blg *.aux *.log
 
 .PHONY: clean
 clean:
-	rm -rfv  *.out *.bbl *.blg *.aux *.log *.pdf
+	rm -rfv  *.out *.bbl *.blg *.aux *.log *.pdf *.txt
  
 
 	

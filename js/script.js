@@ -15,7 +15,7 @@ $(document).ready(function() {
       effect : "fadeIn"
     });
     
-    getFeed("http://duality.io/feed/");
+    //getFeed("http://duality.io/feed/");
     
 })
 

@@ -1,0 +1,83 @@
+{% set width = 80 -%}
+{{ name|center(width) }}
+{{ email|center(width) }}
+{{ website|center(width) }}
+{{ phone|center(width) }}
+
+
+{{ "Publications"|center(width) }}
+{{ "============"|center(width) }}
+
+{% for pub in Publications -%}
+  {{ pub.title }}
+
+  {{ pub.abstract | wordwrap(width-1) }}
+
+  {{ pub.note }}
+
+  {% if not loop.last -%}
+  ---------------
+  {% endif -%}
+{% endfor -%}
+
+{{ "Education"|center(width) }}
+{{ "========="|center(width) }}
+
+{% for edu in Education|sort(True, attribute='_id') -%}
+  {{ edu.Degree }}
+  {{ edu.Field|merge_list(' & ') }}
+  {{ edu.Institution }}
+  {{ edu.Start|dateToMonthYear }} - {{ edu.End|dateToMonthYear}}
+ {% if not loop.last %} ---------- {% endif %}
+{% endfor -%}
+
+{{ "Experience"|center(width) }}
+{{ "=========="|center(width) }}
+
+{% for exp in Experience %}
+  {{ exp.Position|merge_list(' \& ') }}
+  {{ exp.Company }} 
+  {{ exp.Division }}
+  {{ exp.Start|dateToMonthYear }} - {{ exp.End|dateToMonthYear }}
+    {{ exp.Description|wordwrap(width-1)|indent(3) }}
+    {% if exp.Keywords -%}
+      Skills: {{ exp.Keywords|merge_list(', ') }}
+    {% endif -%}
+    {% if not loop.last %} --------- {% endif %} 
+{% endfor -%}
+
+
+{{ "Projects"|center(width) }}
+{{ "========"|center(width) }}
+
+{% for proj in Projects | sort(True, attribute='active') %}
+  {{ proj.name }}
+  {% if proj.active %} -Active- {% else %} -Innactive- {% endif %}
+  {{ proj.description|wordwrap(width-1) | indent(3)}}
+  {% if proj.link and proj.link.github -%}
+    {{ proj.link.github }}
+  {% elif  proj.link and proj.link.site -%}
+    {{ proj.link.site }}
+  {% endif -%}
+  {% if not loop.last -%}
+    ---------
+  {% endif -%}
+{% endfor %}
+
+
+{{ "Skills"|center(width) }}
+{{ "======"|center(width) }}
+
+{% for skillgroup in skills|sort(True, attribute='weight') %}
+  {% set curskillgrp = skillgroup.field|merge_list(' & ') -%}
+  {{ curskillgrp|center(width) }}
+  {{ ('-' * (curskillgrp|length)) |center(width) }}
+  
+  {% for subfield in skillgroup.subfields -%}
+    {{ subfield.area }}
+    {% for skillchunk in subfield.skills|batch(6) -%}
+      {{ skillchunk|join('  ') }}
+    {% endfor %}
+  {% endfor -%}
+
+{% endfor -%}
