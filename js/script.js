@@ -1,3 +1,6 @@
+/*!
+ * script.js | Michael T. Schmidt | MIT License | 2014 
+ * */
 var stickyNavDisp;
 
 $(document).ready(function() {

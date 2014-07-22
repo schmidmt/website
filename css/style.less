@@ -1,36 +1,23 @@
-/* Style.less | Michael T. Schmidt | MIT License | 2014 /*
+/*!
+Style.less | Michael T. Schmidt | MIT License | 2014 
+*/
+
 
 /* Variables */
 @images: "../img";
 
-/*
-@primary-1: #FF8D20;
-@secondary-1: #17889D;
 
-@primary-2: #DF8835;
-@secondary-2: #237989;
+@import (inline) "bootstrap.min.css";
+@import (inline) "footable.core.min.css";
+@import (inline) "domineBaskerville.css";
+@import (inline) "font-awesome.min.css";
 
-@primary-3: #D27114;
-@secondary-3: #0E6F82;
 
-@primary-4: #FFB771;
-@secondary-4: #69D1E4;
-
-@primary-5: #FFD8B2;
-@secondary-5: #A1DAE4;
-*/
-
-//@background-color: #434242;
-//@background-color: #3A4B73;
-//@background-color: darken(blue, 35%);
-//@background-color: #FF6600;
 @background-color: lighten(grey, 90%);
 @background-dark: darken(@background-color, 5%);
-//@background-light: lighten(@background-color, 10%);
 @background-light: #FFFFFF;
 
 @background-light-text: #000000;
-//@background-dark-text: #FFFFFF;
 @background-dark-text: #000000;
 
 @text-color: #FFFFFF;
@@ -39,9 +26,8 @@
 
 body {
   color: @text-color;
-  //background: none repeat scroll 0 0 @background-light;
   font-family: 'Libre Baskerville', serif;
-
+  font-size: 12pt;
 }
 
 
