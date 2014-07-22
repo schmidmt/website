@@ -12,7 +12,8 @@
     "github": "https://github.com/schmidmt",
     "linkedin": "https://www.linkedin.com/pub/michael-schmidt/44/6b6/ba0/",
     "facebook": "https://www.facebook.com/schmidmt",
-    "google": "https://plus.google.com/+MichaelSchmidt_mts/about"
+    "google": "https://plus.google.com/+MichaelSchmidt_mts/about",
+    "twitter": "https://twitter.com/schmidmt"
   },
   "About": [
     "Hi, I'm <b><span itemprop=\"name\"><span itemprop=\"givenName\">Michael</span> <span itemprop=\"additionalName\">T.</span> <span itemprop=\"familyName\">Schmidt</span></span></b>. <span itemprop=\"description\"> I am an experienced mathematician, physicist, programmer, systems administrator, and teacher. Presently, I am the <span itemprop=\"jobTitle\">Upper-School Mathematics Teacher</span> at the Fulton School in St. Albans, Missouri.</span>",
@@ -45,17 +46,20 @@
     {
       "name": "Raspberry Pi Smart Thermostat",
       "tagline": "A learning thermostat",
+      "image": "img/pytherm.png",
       "active": true,
       "description": "Existing smart thermostats are often quite expensive and lack the customizability which I desired. To remedy this, I have started work on a learning thermostat built on a Raspberry Pi. The device is aware of devices on the network so it can customize for its current occupants. The thermostat is predictive and adaptive to weather outside and in."
     },
     {
       "name": "Phishing Detection",
+      "image": "img/phishing.png",
       "active": false,
       "description": "The University of Colorado at one point was suffering from spammers phishing accounts and using them to send spam. In addition to a public awareness campaign, I built a system to find accounts which exhibited signs of being compromised. Taking in metrics from historical and current activity, the program was able to predict when an account was compromised and alert administrators."
     },
     {
       "name": "Spins",
       "tagline": "N-Dimensional Ising Renormalization",
+      "image": "img/spins.png",
       "active": false,
       "description": "As a graduate student studying Field Theory at C.U. Boulder I wrote a piece of code to look at critical phenomena. This code allows any number of dependent variables and any lattice configuration. Furthermore, the code allows for renormalization operations to be applied to the lattice as to seek critical coupling constants.",
       "link": {

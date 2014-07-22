@@ -1,4 +1,4 @@
-all: resume.pdf clean_temp
+all: resume.pdf resume.txt clean_temp
 
 define buildtex 
 	pdflatex $(1)

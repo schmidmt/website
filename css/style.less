@@ -83,14 +83,19 @@ body {
     position: absolute;
     left: 0%;
     text-align: center;
-    height: @navbar-height;
+    height: 40px;
     width: 100%;
     z-index: 5;
   }
-}
 
-/* Navbar */
-@navbar-height: 20px;
+  .github-forkme {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+    z-index: 10;
+  }
+}
 
 .navbar {
   position: absolute;
@@ -99,7 +104,6 @@ body {
   background: none repeat scroll 0 0 #222222;
   border: 0 none;
   width: 100%;
-  //height: @navbar-height;
   left: 0%;
   top: 100%;
 
@@ -170,6 +174,7 @@ body {
     ul {
       list-style: none;
       list-style-type: none;
+      text-align: center;
       
       li {
         display: inline;

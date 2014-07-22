@@ -23,13 +23,16 @@
   <body role="document" _texified="true" data-spy="scroll" data-target=".navbar">
 
     <div class="jumbotron" style="background: url('img/book_pencil.png') no-repeat fixed center center;">
+      <a href="https://github.com/schmidmt/website">
+        <img class="github-forkme" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+      </a>
       <div class="overlay"></div>
       <div class="header-title">
         <h1>{{ name }}</h1>
         <p class="lead">{{ header.lead }}</p>
       </div>
       <a class="scroll-down" href="#about">
-        <i class="fa fa-chevron-circle-down"></i>
+        <i class="fa fa-chevron-circle-down fa-2x"></i>
       </a>
     </div> <!-- jumbotron -->
 
@@ -47,6 +50,7 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="#about">About Me</a></li>
+            <li><a href="#contact">Contact</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#resume">Resum&egrave;</a></li>
@@ -82,9 +86,15 @@
               <a href="resume.pdf"><h4>PDF Resume</h4></a>
             </div>
           </div>
+        </div>
+      </div> <!-- about -->
+
+      <div class="infocell">
+        <a class="anchor" id="contact"></a>
+        <div class="container">
+          <h1>Contact</h1>
           <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <h4>Social Media &amp; Contact</h4>
+            <div class="col-md-6 col-md-offset-3">
               <div class="center-block socialicons">
                 <ul>
                   <li>
@@ -112,12 +122,17 @@
                       <i class="fa fa-google-plus-square fa-4x"></i>
                     </a>
                   </li>
+                  <li>
+                    <a href="{{ Social.twitter }}" rel="author">
+                      <i class="fa fa-twitter-square fa-4x"></i>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div> <!-- Container -->
-      </div> <!-- about -->
+      </div> <!-- contact -->
       
       <div class="infocell">
         <a class="anchor" id="publications"></a>
@@ -157,7 +172,7 @@
             {% for proj in ch -%}
               <div class="col-md-4">
                 {% if proj.image -%}
-                  <img class="img-thumbnail" src="{{ proj.image }}" alt="{{ proj.name }}" width="100%"/>
+                  <img class="img-thumbnail" src="{{ proj.image }}" alt="{{ proj.name }}" width="327px" height="267px"/>
                 {% endif -%}
                 <h3>{{ proj.name }}</h3>
                 {% if proj.tagline -%}
@@ -294,10 +309,10 @@
                       <span class="ability-title">{{ skill }}</span>
                       <span class="ability-value">
                         {% for n in range(level) -%}
-                          <i class="fa fa-star"></i>
+                          <i class="fa fa-circle"></i>
                         {% endfor -%}
                         {% for n in range(settings.max_rank - level) -%}
-                          <i class="fa fa-star-o"></i>
+                          <i class="fa fa-circle-o"></i>
                         {% endfor -%}
                       </span>
                     </li>
