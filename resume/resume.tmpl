@@ -145,7 +145,7 @@
   \node [proBox] (box){%
     \begin{minipage}{\textwidth}
       ((* for proj in Projects | sort(True, attribute='active') | firstn(4)  -*))
-        \splitpro{((( proj.name|escape_tex ))) \\ \footnotesize{((* if proj.active *)) Active ((* else *)) Innactive ((* endif *))}}{
+        \splitpro{((( proj.name|escape_tex ))) \\ \footnotesize{((* if proj.active *)) Active ((* else *)) Inactive ((* endif *))}}{
           ((( proj.description|escape_tex )))
           ((* if proj.link and proj.link.github -*))
             \\

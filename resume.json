@@ -65,6 +65,13 @@
       "link": {
         "github": "http://github.com/schmidmt/Spins"
       }
+    },
+    {
+      "name": "Merging Spheromak Simulation",
+      "active": false,
+      "tagline": "Colorado FRC Experiment",
+      "image": "img/frc.png",
+      "description": "Since experimentation in plasma dynamics is on the &mu;s order, we decided to simulate a FRC collision on a computer when results were not as expected. A two fluid simulation model was used to predict the formation and collision of FRC type plasma. The simulations I created ultimately revealed a design flaw in the apparatus causing a cease to the experiment."
     }
   ],
   "Education": [
@@ -274,6 +281,7 @@
           "skills": {
             "HTML5/CSS3": 4,
             "JavaScript": 4,
+            "JQuery": 4,
             "Twitter BootStrap": 4,
             "Less": 4
           }

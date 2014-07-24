@@ -52,7 +52,7 @@
 
 {% for proj in Projects | sort(True, attribute='active') %}
   {{ proj.name }}
-  {% if proj.active %} -Active- {% else %} -Innactive- {% endif %}
+  {% if proj.active %} -Active- {% else %} -Inactive- {% endif %}
   {{ proj.description|wordwrap(width-1) | indent(3)}}
   {% if proj.link and proj.link.github -%}
     {{ proj.link.github }}
