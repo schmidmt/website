@@ -7,10 +7,10 @@ Style.less | Michael T. Schmidt | MIT License | 2014
 @images: "../img";
 
 
+@import (inline) "font-awesome.min.css";
 @import (inline) "bootstrap.min.css";
 @import (inline) "footable.core.min.css";
 @import (inline) "domineBaskerville.css";
-@import (inline) "font-awesome.min.css";
 
 
 @background-color: lighten(grey, 90%);
@@ -40,6 +40,27 @@ body {
 @jumbotron-overlay-color: #336666;
 @jumbotron-overlay-opaci: 0.4;
 
+.loading {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  display: block;
+  opacity: 1.0;
+  background-color: @jumbotron-overlay-color;
+  z-index: 99;
+  text-align: center;
+
+  .loading-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;;
+    z-index: 100;
+    color: #FFFFFF;
+  }
+}
+
 .jumbotron {
   height: 1000px;
   min-width: 100%;
@@ -67,7 +88,7 @@ body {
     border-radius: 8px; /*...and in here*/
     font-family: 'Domine', sans-serif;
     font-weight: 700;
-    z-index: 1001;
+    z-index: 100;
     position: absolute;
     right: 5%;
     color: @title-text;
@@ -100,7 +121,7 @@ body {
 .navbar {
   position: absolute;
   float: left;
-  z-index: 9999;
+  z-index: 98;
   background: none repeat scroll 0 0 #222222;
   border: 0 none;
   width: 100%;
@@ -389,11 +410,13 @@ a.anchor{
     height: 60px;
   }
 	.navbar .nav > li a {
-    height: 60px;
+    height: 30px;
     text-align: center;
-    padding-top: 20px;
-    font-weight: 600;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-weight: 200;
     color: #FFFFFF;
+    font-size: .9em;
   }
 	
 	.fixed .navbar {

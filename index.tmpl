@@ -24,6 +24,9 @@
   </head>
 
   <body role="document" _texified="true" data-spy="scroll" data-target=".navbar">
+    <div class="loading">
+      <i class="fa fa-circle-o-notch fa-spin fa-2x loading-image"></i>
+    </div>
 
     <div class="jumbotron" style="background: url('img/book_pencil.png') no-repeat fixed center center;">
       <a href="https://github.com/schmidmt/website">
@@ -202,9 +205,8 @@
             </div>
             {% if not loop.last %}<hr>{% endif %}
           {% endfor -%}
-          
           <hr>
-          <div class="row">
+          <div class="row" id="github">
             <div class="col-md-10 col-md-offset-1 center-text">
               <h3>Other Projects on GitHub</h3>
               <div class="githubprojects">

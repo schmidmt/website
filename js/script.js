@@ -3,6 +3,10 @@
  * */
 var stickyNavDisp;
 
+$(window).load(function() {
+  $('.loading').fadeOut();
+});
+
 $(document).ready(function() {
     applyHeader();
     applyNavigation();
@@ -147,5 +151,8 @@ function applyGitHub() {
             tablet: 1024
           }
         });
+    }).fail(function() {
+     console.log("Couldn't Load github json file."); 
+     $('#github').remove();
     });
 }
