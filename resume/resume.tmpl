@@ -115,15 +115,17 @@
           & ((( exp.Company ))) 
           & ((( exp.Division )))
           & ((( exp.Start|dateToMonthYear )))
-          & ((( exp.End|dateToMonthYear ))) \\
-        \multicolumn{5}{p{0.98\linewidth}}{\footnotesize{
-          ((( exp.Description|escape_tex )))
-        }}\\
-        ((* if exp.Keywords *))
+          & ((* if exp.Current *))Present ((* else *))((( exp.End|dateToMonthYear ))) ((* endif *)) \\
+        ((* if exp.Description -*))
+          \multicolumn{5}{p{0.98\linewidth}}{\footnotesize{
+            ((( exp.Description|escape_tex )))
+          }}\\
+        ((* endif -*))
+        ((* if exp.Keywords -*))
           \multicolumn{5}{p{0.98\linewidth}}{\footnotesize{
             \textbf{Skills: ((( exp.Keywords|merge_list(', ') )))}
           }}\\
-        ((* endif *))
+        ((* endif -*))
         ((* if not loop.last -*))
           \noalign{\smallskip}
           \hdashline

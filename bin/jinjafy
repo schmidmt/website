@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 
 import argparse
-import json
+#import json
+import simplejson as json
 import pystache
 import jinja2
 import re
 import datetime
 
 def main():
-    
+
     parser = argparse.ArgumentParser(
                 description="Run a file through PyStache."
              )
@@ -19,7 +20,8 @@ def main():
     parser.add_argument('--latex', dest='latex', action='store_true', default=False)
     args = parser.parse_args()
 
-    env = json.load(open(args.json[0], 'rb'))
+    json_fh = open(args.json[0], 'r')
+    env = json.load(json_fh)
     
     # Latex Settings
     latex_env = {

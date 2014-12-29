@@ -25,8 +25,8 @@ clean_temp:
 	rm -rfv  *.out *.bbl *.blg *.aux *.log
 
 .PHONY: clean
-clean:
-	rm -rfv  *.out *.bbl *.blg *.aux *.log *.pdf *.txt
+clean: clean_temp
+	rm -rfv  resume.pdf resume.txt resume.tex
  
 
 	

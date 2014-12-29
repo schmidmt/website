@@ -38,7 +38,11 @@
   {{ exp.Position|merge_list(' \& ') }}
   {{ exp.Company }} 
   {{ exp.Division }}
-  {{ exp.Start|dateToMonthYear }} - {{ exp.End|dateToMonthYear }}
+  {% if exp.Current -%}
+    {{ exp.Start|dateToMonthYear }} - Present
+  {% else -%}
+    {{ exp.Start|dateToMonthYear }} - {{ exp.End|dateToMonthYear }}
+  {% endif -%}
     {{ exp.Description|wordwrap(width-1)|indent(3) }}
     {% if exp.Keywords -%}
       Skills: {{ exp.Keywords|merge_list(', ') }}

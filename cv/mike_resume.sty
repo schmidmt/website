@@ -1,0 +1,119 @@
+\ProvidesPackage{mike_resume}
+
+\newcommand*\chapterlabel{}
+\newcommand{\splitpage}[2]{
+  \begin{minipage}[t]{0.29\textwidth}
+    \begin{flushleft}
+    #1
+    \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[t]{0.7\textwidth}
+    \begin{flushleft}
+    #2
+    \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+}
+
+\newcommand{\splitexp}[2]{
+  \begin{minipage}[t]{0.7\textwidth}
+    \begin{flushleft}
+    #1
+    \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[t]{0.24\textwidth}
+    \begin{flushleft}
+    #2
+    \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+}
+
+\newcommand{\splitpro}[2]{
+  \begin{minipage}[t]{0.24\textwidth}
+    \begin{flushleft}
+    \textbf{#1}
+    \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[t]{0.7\textwidth}
+    \begin{flushleft}
+    #2
+    \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+  \vspace{0.25cm}
+}
+\newcommand{\jobsplit}[6]{
+  \begin{minipage}[t]{0.35\textwidth}
+    \begin{flushleft}
+      \textbf{#1}\\
+      \small #2 \ \\
+      #3\ \\
+      \scriptsize#4 \normalsize \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[t]{0.6\textwidth}
+    \begin{flushleft}
+      \small #5  \\
+      #6
+    \end{flushleft}
+  \end{minipage} \\
+  \vspace{0.5cm}
+}
+
+\newcommand{\refsplit}[7]{
+  \begin{minipage}[t]{0.35\textwidth}
+    \begin{flushleft}
+      \textbf{#1}\\
+      \small #2 \ \\
+      \small #3 \ \\
+      #4\ \\
+      \scriptsize#5 \normalsize \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[t]{0.6\textwidth}
+    \begin{flushleft}
+      \textbf{Relationship: #6}.
+      #7
+      %\vspace{0.1cm}
+    \end{flushleft}
+  \end{minipage} \vspace{0.5cm}
+
+}
+
+\newcommand{\splitpagetop}[2]{
+  \begin{minipage}[c]{0.5\textwidth}
+    \begin{flushleft}
+    #1
+    \footnotesize{\ }
+    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[l]{0.5\textwidth}
+    \begin{flushright}
+    #2
+    \footnotesize{\ }
+    \end{flushright}
+  \end{minipage}
+}
+
+\newcommand{\keywordbox}[1]{%
+\begin{tikzpicture}
+  \node[node distance=0.5cm,rounded corners=2pt, draw=blue, fill=blue, text=white, minimum height=4mm] at (0,0){\scriptsize\sffamily\bfseries #1};
+\end{tikzpicture}
+}
+
+\newcommand{\sectionformat}[1]{%
+\node[node distance=2cm,rounded corners,draw=black,text ragged, text width=7cm, minimum height=0.8cm] at (0,0){\ #1};}
+\titlelabel{\thetitle \quad}
+
+
+
+\titleformat{\section}{\titlerule\vspace{0.0ex}\Large\bfseries}{\thesection.}{0.5em}{}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\itemsep}{500pt}

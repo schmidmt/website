@@ -16,7 +16,7 @@
     "twitter": "https://twitter.com/schmidmt"
   },
   "About": [
-    "Hi, I'm <b><span itemprop=\"name\"><span itemprop=\"givenName\">Michael</span> <span itemprop=\"additionalName\">T.</span> <span itemprop=\"familyName\">Schmidt</span></span></b>. <span itemprop=\"description\"> I am an experienced mathematician, physicist, programmer, systems administrator, and teacher. Presently, I am the <span itemprop=\"jobTitle\">Upper-School Mathematics Teacher</span> at the Fulton School in St. Albans, Missouri.</span>",
+    "Hi, I'm <b><span itemprop=\"name\"><span itemprop=\"givenName\">Michael</span> <span itemprop=\"additionalName\">T.</span> <span itemprop=\"familyName\">Schmidt</span></span></b>. <span itemprop=\"description\"> I am an experienced mathematician, physicist, programmer, software engineer, and teacher. Presently, I am a <span itemprop=\"jobTitle\">Software Engineer</span> at Exegy, Inc.</span>",
      "While most of my education is in physics, I think of myself as a mathematician. I have preferred the rigor of math and it's application to physics to the more surveying methods in a physics treatment.",
      "Additionally, I have worked in distributed computing, both on the operations and programmer sides. I find great satisfaction within this work as it combines all of my passions: math, physics, and computer science.",
      "In the greater sense, my goal is to broaden my understanding of the world and use that knowledge to create novel solutions to seemingly intractable problems."
@@ -97,10 +97,24 @@
     }
   ],
   "Experience": [
+   {
+      "Company": "Exegy",
+      "_Division": "Managed Services Group",
+      "Current": true,
+      "Start": "2014-08-25",
+      "End": "",
+      "Position": "Software Engineer",
+      "Position_short": "Software Engineer",
+      "Description": "Build and maintain software used with high-frequency trading appliances.",
+      "Location": "St. Louis, MO, USA",
+      "linkhref": "http://www.exegy.com/",
+      "linkname": "Exegy.COM",
+      "Keywords": ["High-Frequency Trading"]
+    },
     {
       "Company": "The Fulton School at St. Albans",
       "_Division": "Upper School",
-      "Current": true,
+      "Current": false,
       "Start": "2013-08-01",
       "End": "2014-07-31",
       "Position": "Upper School Mathematics Teacher",
@@ -123,7 +137,7 @@
       "Location": "Boulder, CO, USA",
       "linkhref": "http://rc.colorado.edu/",
       "linkname": "RC.Colorado.EDU",
-      "Keywords": ["HPC", "Distributed Computing", "Research", "BigData"]
+      "Keywords": ["HPC", "Distributed Computing", "Research", "BigData", "Web Design"]
     },
     {
       "Company": "Pronto",
@@ -166,13 +180,66 @@
       "Keywords": []
     }
   ],
+  "teaching_experience": [
+    {
+      "title": "Middle &amp; High School Mathematics",
+      "subtitle": "",
+      "where": "The Fulton School",
+      "description": "Having enjoyed teaching at the college level as a teaching assistant, I opted to continue teaching. The Fulton School promotes independent learning though mentoring from teachers with small groups and project based learning. As one of two upper school mathematics teachers, I taught pre-algebra through math as advanced as the students would ask for."
+    },
+    {
+      "title": "Intro Physics",
+      "subtitle": "Calculus Based",
+      "where": "CU Boulder",
+      "description": "As a educator at C.U. Boulder, I taught using modern research based pedagogy driven by an active Physics Education Research group. By combining small group tutorials and experimental toys, students are allowed to create a long lasting, solid understanding of physical concepts. Many of the weekly experiments were simple but designed to expose critical errors in understanding. The introductory physics course focuses on classical mechanics, electricity &amp; magnetism, and special relativity all taught through the lens of calculus. Additionally, I taught students Calculus III since a complete understanding of Vector Calculus was required."
+    },
+    {
+      "title": "Intro Physics",
+      "subtitle": "Algebra Based",
+      "where": "CU Boulder",
+      "description": "The Algebra based curriculum varied greatly from the Calculus based courses as critical concepts had to be build without the aide of high mathematics. To accomplish this, the material was very heavy in experiments and the lecture focused mainly on fundamental concepts rather than general mathematical proof. Experiments were interdisciplinary and focused on student engagement (i.e. students built a simple EKG to learn about potentials in the human body). This course covered classical mechanics and electricity &amp; magnetism."
+    },
+    {
+      "title": "Modern Physics",
+      "subtitle": "Majors Only",
+      "where": "CU Boulder",
+      "description": "Modern Physics covers special relativity, quantum mechanics, and a little general relativity; the purpose of the course is to give students a taste for what courses will be available to them. Simplified material for each subject was taught as most student would not have taken differential equations. Much of the material was created to be an introduction to complex mathematical ideas such as complex numbers, Fourier series, and differential equations."
+    }
+  ],
+  "talks": [
+    { 
+      "title": "Colorado STEM C-FRC",
+      "description": "This talk was part of the STEM series at C.U. Boulder. The talk covered detector design on the Colorado FRC experiment (Munsat Lab, CIPS)."
+    },
+    {
+      "title": "Research Computing Lectures",
+      "description": "The Research Computing lecture series was designed to educate the CU community on distributed computing and high performance code."
+    }
+  ],
   "Publications": [
     {
       "title": "A Tale of Two Arc Lengths: Metric notions for curves in surfaces in equiaffine space",
       "abstract": "In Euclidean geometry, all metric notions (arc length for curves, the first fundamental form for surfaces, etc.) are derived from the Euclidean inner product on tangent vectors, and this inner product is preserved by the full symmetry group of Euclidean space (translations, rotations, and reflections). In equiaffine geometry, there is no invariant notion of inner product on tangent vectors that is preserved by the full equiaffine symmetry group. Nevertheless, it is possible to define an invariant notion of arc length for nondegenerate curves, and an invariant first fundamental form for nondegenerate surfaces in equiaffine space. This leads to two possible notions of arc length for a curve contained in a surface, and these two arc length functions do not necessarily agree. In this paper we will derive necessary and sufficient conditions under which the two arc length functions do agree, and illustrate with examples.",
-      "linkhref": "http://arxiv.org/abs/1205.0065",
-      "linkname": "arXiv:1205.0065",
-      "note": "To be published in AMS-Letters."
+      "linkhref": "http://www.ams.org/journals/proc/2014-142-07/S0002-9939-2014-11983-6/S0002-9939-2014-11983-6.pdf",
+      "linkname": "PDF",
+      "note": "Published in AMS Proceedings"
+    }
+  ],
+  "research": [
+    {
+      "group": "Clelland Group",
+      "topic": "Moving Frames (DG)",
+      "description": "What started only as a Differential Geometry book spawned numerous research endeavors into new questions the Clelland group came across. Many small interesting problems were faced at at least one paper was published concerning the topic."
+    },
+    {
+      "group": "LASP",
+      "topic": "Colorado Center for Lunar Dust and Atmospheric Studies",
+      "description": "The dust accelerator at C.U. Boulder is one of a kind. Used to study dust collisions, the NASA funded project allows research into lunar atmospheric dynamics. Additional research has also been done into high atmospheric dust particles."
+    },
+    {
+      "group": "Munsat Lab",
+      "topic": "Colorado FRC Experiment",
+      "description": "The Colorado FRC experiment was created to explore magnetic reconnection events between two FRC plasma knots. High speed electronics and optics were used to monitor the plasma dynamics as two FRCs were merged. The experiment specifically was designed to explore the types of waves produced by reconnection during the merger."
     }
   ],
   "settings": {
@@ -279,11 +346,12 @@
         {
           "area": "Web Design",
           "skills": {
-            "HTML5/CSS3": 4,
-            "JavaScript": 4,
+            "HTML5/CSS3": 5,
+            "JavaScript/CoffeeScript": 5,
             "JQuery": 4,
-            "Twitter BootStrap": 4,
-            "Less": 4
+            "Twitter BootStrap": 5,
+            "Less": 4,
+            "Angular": 4
           }
         }
       ]

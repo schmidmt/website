@@ -1,0 +1,173 @@
+\input{settings.tex}
+
+\usepackage{mathabx}
+\usepackage{enumitem}
+
+\begin{document}
+
+%%%%%%%%%%%%%%
+%%% HEADER %%%
+%%%%%%%%%%%%%%
+((* set showheader = false -*))
+((* if showheader -*))
+% drawing parameters
+\newcommand{\circdist}{1/8 }  % distance from origin to center of circles
+\newcommand{\circrad}{1/2} % radius of the circles
+\newcommand{\circlethickness}{0.2mm} % uh, thickness of the circles
+
+% distance from the origin to the three "interior" intersections
+\pgfmathsetmacro{\intrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) - \circdist/2}
+
+% distance from the origin to the three "exterior" intersections
+\pgfmathsetmacro{\extrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) + \circdist/2}
+
+% so we can just specify an angle and get the correct color for the circle
+\colorlet{30}{yellow}
+\colorlet{150}{blue}
+\colorlet{270}{red}
+
+% draws one of our circles
+\newcommand{\mycircle}[1]{%
+  \draw[thick, double distance=\circlethickness, double=#1]
+  (#1:\circdist) circle (\circrad);}
+((* endif -*))
+\begin{center}
+((* if showheader -*))
+\begin{tikzpicture}[scale=2]
+  % draw the circles
+  \foreach \angle in {30, 150, 270}
+  {
+    \mycircle{\angle}
+  }
+
+  % we need to re-do two of the intersections so that the rings
+  % interlock and aren't just piled on top of one another
+  \foreach \angle/\rad in {45/\intrad, 90/\extrad}
+  {
+    \begin{scope}
+      \clip (\angle:\rad) circle (8/4*\circlethickness);
+      %                          you may need to adjust the 5/4 above so
+      %                          the clipping area is big enough
+      \mycircle{30}
+      \mycircle{270}
+    \end{scope}
+  }
+\end{tikzpicture}
+
+((* endif -*))
+
+{\huge\textsc{\fullname}}
+{\footnotesize \href{mailto:((( email ))) }{\textsc{ ((( email ))) }}} 
+{\footnotesize \href{http://((( website )))}{ ((( website ))) }} 
+{\footnotesize \href{http://((( phone )))}{ ((( phone ))) }}
+\end{center}
+
+%%%%%%%%%%%%%%%%%
+%%% EDUCATION %%%
+%%%%%%%%%%%%%%%%%
+
+% Education
+\begin{minipage}[c]{0.46\textwidth}
+  \begin{tikzpicture}
+    \node [abtBox1] (box){%
+      \begin{minipage}{\textwidth}
+      ((* for edu in Education|sort(True, attribute='_id') -*))
+        \textbf{((( edu.Degree ))) - ((( edu.Field|merge_list(' \& ') )))} \\
+        ((( edu.Institution ))) ((* if not loop.last *)) \\ ((* endif *))
+      ((* endfor -*))
+      \end{minipage}
+    };
+    \node[abtTitle1, right=10pt] at (box.north west) {Education};
+  \end{tikzpicture}
+\end{minipage}
+\hfill
+%%%%%%%%%%%%%%%%%%%%
+%%% Publications %%%
+%%%%%%%%%%%%%%%%%%%%
+\begin{minipage}[c]{0.45\textwidth}
+  \begin{tikzpicture}
+    \node [abtBox2] (box){%
+      \begin{minipage}{\textwidth}
+        ((* for pub in Publications -*))
+        \textbf{((( pub.title )))} \\
+        {\footnotesize ((( pub.linkname ))) ((* if pub.note *)) \\ ((( pub.note ))) ((* endif *))}
+        ((* endfor -*))
+      \end{minipage}
+    };
+    \node[abtTitle2, right=10pt] at (box.north west) {Publications};
+  \end{tikzpicture}
+\end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Teaching Experience %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}
+  \node [expBox] (box){%
+    \begin{minipage}{\textwidth}
+      ((* for exp in teaching_experience -*))
+        ((* if loop.index is odd -*))
+          \splitpro{
+        ((* else -*))
+          \splitprol{
+        ((* endif -*))
+        ((( exp.title|escape_tex )))((* if exp.subtitle *))\\ ( (((exp.subtitle ))) ) ((* endif *))}{
+            ((( exp.description|escape_tex )))
+        }
+
+      ((* endfor -*))
+    \end{minipage}
+  };
+  \node[fancytitle, right=10pt] at (box.north west) {Teaching Experience};
+\end{tikzpicture}
+
+%%%%%%%%%%%%%%%%
+%%% Research %%%
+%%%%%%%%%%%%%%%%
+
+\begin{tikzpicture}
+  \node [proBox] (box){%
+    \begin{minipage}{\textwidth}
+      ((* for r in research -*))
+        ((* if loop.index is odd -*))
+          \splitpro{
+        ((* else -*))
+          \splitprol{
+        ((* endif -*))
+          ((( r.topic|escape_tex ))) @ (((r.group)))}{
+          ((( r.description|escape_tex )))
+        }
+        ((* if not loop.last -*))
+          \hspace{1em}
+        ((* endif -*))
+      ((* endfor -*))
+    \end{minipage}
+  };
+  \node[proTitle, right=10pt] at (box.north west) {Research};
+\end{tikzpicture}%
+
+%%%%%%%%%%%%%
+%%% Talks %%%
+%%%%%%%%%%%%%
+
+\begin{tikzpicture}
+  \node [sklBox] (box){%
+    \begin{minipage}{\textwidth}
+      ((* for t in talks -*))
+        ((* if loop.index is odd -*))
+          \splitpro{
+        ((* else -*))
+          \splitprol{
+        ((* endif -*))
+          ((( t.title|escape_tex )))}{
+          ((( t.description|escape_tex )))
+        }
+        ((* if not loop.last -*))
+          \hspace{1em}
+        ((* endif -*))
+      ((* endfor -*))
+    \end{minipage}
+  };
+  \node[sklTitle, right=10pt] at (box.north west) {Talks};
+\end{tikzpicture}%
+
+\end{document}

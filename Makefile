@@ -9,16 +9,20 @@ JINJAFY        = ./bin/jinjafy
 HTMLCOMPRESSOR = /usr/bin/java -jar ./bin/htmlcompressor-1.5.3.jar
 COMPRESSOROPS  = --remove-intertag-spaces --remove-quotes  
 
-ALL: css js resume index.html
-.DEFAULT: css js resume index.html
+ALL: css js resume cv index.html
+.DEFAULT: css js resume cv index.html
 
 index.html: $(CONTENT_JSON) index.tmpl
-			$(JINJAFY) index.tmpl $(CONTENT_JSON) |  $(HTMLCOMPRESSOR) $(COMPRESSOROPTS) --output index.html
+#			$(JINJAFY) index.tmpl $(CONTENT_JSON) |  $(HTMLCOMPRESSOR) $(COMPRESSOROPTS) --output index.html
+			$(JINJAFY) index.tmpl $(CONTENT_JSON) > index.html
 
 .PHONY: push
 push: index.html css resume js
-			rsync -avP --exclude="*.sw[op]" $(PAGEDIR)/{*.html,css,img,js,sitemap.xml,resume/resume.{pdf,txt},fonts} $(REMOTE_HOST):$(SERVERSIDE_DIR)/.
-			rsync -avP --exclude="*.sw[op]" $(PAGEDIR)/{*.html,css,img,js,sitemap.xml,resume/resume.{pdf,txt},fonts} schmidmt.duckdns.org:/var/www/default/htdocs/.
+			rsync -avP --exclude="*.sw[op]" $(PAGEDIR)/{*.html,css,img,js,sitemap.xml,resume/resume.{pdf,txt},fonts,cv/cv.pdf} $(REMOTE_HOST):$(SERVERSIDE_DIR)/.
+
+.PHONY: pushdev
+pushdev: index.html css resume js
+			rsync -avP --exclude="*.sw[op]" $(PAGEDIR)/{*.html,css,img,js,sitemap.xml,resume/resume.{pdf,txt},fonts, cv/cv.pdf} schmidmt.duckdns.org:/var/www/default/htdocs/.
 
 .PHONY: js
 js: force
@@ -34,6 +38,11 @@ css: force
 resume: force
 			@echo "Building resume"
 			$(MAKE) -C resume
+
+.PHONY: cv
+cv:
+			@echo "Building CV"
+			$(MAKE) -C cv
 
 .PHONY: clean
 clean :
